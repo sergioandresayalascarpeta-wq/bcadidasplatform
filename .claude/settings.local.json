@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/ayaladiaz/Documents -type f \\\\\\(-name *bcadidas* -o -name *adidas* -o -name *forecast* -o -name *Databricks* -o -name *AWS* \\\\\\))",
+      "Bash(find /Users/ayaladiaz/Downloads -type f \\\\\\(-name *bcadidas* -o -name *adidas* -o -name *forecast* \\\\\\))",
+      "Bash(python3:*)"
+    ]
+  }
+}
