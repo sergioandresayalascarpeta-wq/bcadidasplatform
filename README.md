@@ -2,6 +2,20 @@
 
 Proposal deliverables for the adidas Latin America Demand Forecasting capability, built on **Databricks Lakehouse** (AWS) with the **Medallion Architecture** (Bronze/Silver/Gold).
 
+## Executive Snapshot
+
+- **Objective:** improve demand forecasting accuracy across LAM channels and countries.
+- **Target business outcomes:** WMAPE below 20%, 10-15% safety stock reduction, 95%+ automated SKU coverage.
+- **Primary recommendation:** Databricks Lakehouse on AWS, with governed Bronze/Silver/Gold data products and ML-driven forecasting.
+- **Delivery horizon:** 12-month roadmap with first production value in Month 7.
+
+## Start Here (For Panel / Recruiters)
+
+1. Read the 2-page proposal: [`02-technical-proposal/technical-proposal-2page.md`](02-technical-proposal/technical-proposal-2page.md)
+2. Review architecture views: [`01-architecture/`](01-architecture/)
+3. Open the presentation deck: [`04-presentation/presentation.md`](04-presentation/presentation.md)
+4. Use Q&A prep for defense: [`06-sustentacion/guia-sustentacion-qa.md`](06-sustentacion/guia-sustentacion-qa.md)
+
 ## Deliverables — Official Submission
 
 | # | Deliverable | Path | Notes |
