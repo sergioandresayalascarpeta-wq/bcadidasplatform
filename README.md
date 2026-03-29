@@ -51,3 +51,15 @@ Proposal deliverables for the adidas Latin America Demand Forecasting capability
   marp 04-presentation/presentation.md --pdf
   ```
 - All documents render natively on GitHub
+
+## Vercel Deployment (One-Click)
+
+This repository is configured so Vercel can deploy directly from the repo root.
+
+- Import repository in Vercel: `sergioandresayalascarpeta-wq/bcadidasplatform`
+- Keep default root directory (repository root)
+- No custom build settings required
+
+Under the hood:
+- Root `package.json` delegates build/install/dev to `adidas-forecast-platform/`
+- Root `vercel.json` provides Vercel commands for install/build/dev

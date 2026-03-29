@@ -1,0 +1,10 @@
+{
+  "name": "bcadidasplatform-root",
+  "private": true,
+  "scripts": {
+    "install:app": "npm --prefix adidas-forecast-platform install",
+    "build": "npm --prefix adidas-forecast-platform run build",
+    "dev": "npm --prefix adidas-forecast-platform run dev",
+    "start": "npm --prefix adidas-forecast-platform run start"
+  }
+}
