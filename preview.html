@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>adidas LAM - Local Preview</title>
+    <style>
+      :root {
+        --bg: #0b0d12;
+        --card: #121722;
+        --text: #eef2ff;
+        --muted: #aeb8d0;
+        --accent: #7aa2ff;
+        --line: #27314a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 18px 42px;
+      }
+      h1 { margin: 0 0 10px; font-size: 2rem; }
+      p { color: var(--muted); line-height: 1.5; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px 14px 12px;
+      }
+      .card h3 { margin: 0 0 8px; font-size: 1rem; }
+      .card p { margin: 0 0 12px; font-size: 0.95rem; }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      a:hover { text-decoration: underline; }
+      .kpis {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 16px 0 4px;
+      }
+      .pill {
+        background: #1a2337;
+        border: 1px solid #31456d;
+        color: #dce6ff;
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+      }
+      .section-title {
+        margin: 36px 0 6px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #dce6ff;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 8px;
+      }
+      .section-note {
+        margin: 0 0 12px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .footer {
+        margin-top: 24px;
+        color: #97a3c1;
+        font-size: 0.9rem;
+      }
+      code {
+        background: #111a2b;
+        border: 1px solid #2a395b;
+        border-radius: 6px;
+        padding: 2px 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>adidas LAM Demand Forecasting Platform</h1>
+      <p>
+        Local HTML preview to quickly validate structure and content before deployment.
+        This is a static snapshot for review only.
+      </p>
+
+      <div class="kpis">
+        <span class="pill">Target WMAPE: &lt; 20%</span>
+        <span class="pill">Safety Stock: -10 to -15%</span>
+        <span class="pill">SKU Coverage: 95%+</span>
+        <span class="pill">First Value: Month 7</span>
+      </div>
+
+      <section class="grid">
+        <article class="card">
+          <h3>Architecture Diagrams</h3>
+          <p>End-to-end, medallion, ML pipeline, infrastructure and governance views.</p>
+          <a href="./01-architecture/architecture-diagram.md">Open</a>
+        </article>
+
+        <article class="card">
+          <h3>Technical Proposal (2-page)</h3>
+          <p>Main submission document aligned to requested architecture requirements.</p>
+          <a href="./02-technical-proposal/technical-proposal-2page.md">Open</a>
+        </article>
+
+        <article class="card">
+          <h3>Roadmap</h3>
+          <p>Phased delivery plan with milestones and ownership over 12 months.</p>
+          <a href="./03-roadmap/roadmap.md">Open</a>
+        </article>
+
+        <article class="card">
+          <h3>Presentation Deck</h3>
+          <p>Marp slide deck and supporting speaker notes for defense/Q&amp;A.</p>
+          <a href="./04-presentation/presentation.md">Open</a>
+        </article>
+
+        <article class="card">
+          <h3>Q&amp;A Study Kit</h3>
+          <p>Flashcards and technical emphasis points for panel questions.</p>
+          <a href="./05-study/technical-qa-flashcards.md">Open</a>
+        </article>
+
+        <article class="card">
+          <h3>Business Case</h3>
+          <p>ROI assumptions, value framing and expected financial impact.</p>
+          <a href="./06-sustentacion/roi-business-case.md">Open</a>
+        </article>
+
+        <article class="card">
+          <h3>Q&amp;A Guide (30 questions)</h3>
+          <p>Deep prep for sustentación and panel questions.</p>
+          <a href="./06-sustentacion/guia-sustentacion-qa.md">Open</a>
+        </article>
+
+        <article class="card">
+          <h3>NotebookLM input</h3>
+          <p>Consolidated output specs + presentation blueprint.</p>
+          <a href="./notebooklm-output-and-presentation.md">Open</a>
+        </article>
+      </section>
+
+      <h2 class="section-title">Diagrams &amp; workflow</h2>
+      <p class="section-note">
+        Mermaid in <code>01-architecture/</code> stays the source of truth. New draw.io files and PNG/SVG exports go in
+        <code>07-diagram-workflow/</code> — this section is updated as you add assets.
+      </p>
+      <section class="grid">
+        <article class="card">
+          <h3>Workflow guide (Mermaid + draw.io)</h3>
+          <p>Naming, versioning, and mapping table. Read this first.</p>
+          <a href="./07-diagram-workflow/diagram-workflow.md">Open</a>
+        </article>
+        <article class="card">
+          <h3>Data flow detail (Mermaid)</h3>
+          <p>Bronze/Silver/Gold, schemas, SLAs — canonical for data movement.</p>
+          <a href="./01-architecture/data-flow-detail.md">Open</a>
+        </article>
+        <article class="card">
+          <h3>Infrastructure diagram (Mermaid)</h3>
+          <p>AWS layout, compute, networking context.</p>
+          <a href="./01-architecture/infrastructure-diagram.md">Open</a>
+        </article>
+        <article class="card">
+          <h3>Mermaid Chart (Pro)</h3>
+          <p>Paste blocks here for interactive zoom, pan, and team review.</p>
+          <a href="https://www.mermaidchart.com" target="_blank" rel="noopener noreferrer">Open Mermaid Chart ↗</a>
+        </article>
+        <article class="card">
+          <h3>draw.io sources folder</h3>
+          <p>Drop <code>.drawio</code> files here; list grows as you export.</p>
+          <a href="./07-diagram-workflow/drawio/README.md">Open</a>
+        </article>
+        <article class="card">
+          <h3>Slide exports (PNG/SVG)</h3>
+          <p>Exported visuals for deck; link new files in this README over time.</p>
+          <a href="./07-diagram-workflow/exports/README.md">Open</a>
+        </article>
+      </section>
+
+      <p class="footer">
+        To preview with a local web server: <code>cd /Users/ayaladiaz/py/bcadidas && python3 -m http.server 8080</code>
+        then open <code>http://localhost:8080/preview.html</code>.
+      </p>
+    </main>
+  </body>
+</html>
+
