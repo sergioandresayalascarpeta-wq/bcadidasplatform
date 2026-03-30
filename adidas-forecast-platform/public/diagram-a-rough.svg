@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1060" width="1440" height="1060">
+<rect width="1440" height="1060" fill="#ffffff"/>
+<text x="720.0" y="36" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="900" fill="#000000">adidas LAM — Demand Forecasting Platform</text>
+<text x="720.0" y="56" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#737373">End-to-End Architecture  ·  Databricks Lakehouse on AWS (sa-east-1)</text>
+<line x1="40" y1="68" x2="1400" y2="68" stroke="#e8e8e8" stroke-width="1"/>
+<rect x="40" y="82" width="1360" height="116" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="666.5" y="72" width="107.0" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="86" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">SOURCE SYSTEMS</text>
+<rect x="54" y="100" width="166" height="94" rx="4" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+<text x="137.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">SAP ERP</text>
+<text x="137.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Orders</text>
+<text x="137.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Inventory</text>
+<text x="137.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Product Master</text>
+<rect x="222" y="100" width="166" height="94" rx="4" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+<text x="305.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Retail POS</text>
+<text x="305.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Transactions</text>
+<text x="305.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Streaming</text>
+<text x="305.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Real-time</text>
+<rect x="390" y="100" width="166" height="94" rx="4" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+<text x="473.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">eCommerce</text>
+<text x="473.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Clickstream</text>
+<text x="473.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Kinesis</text>
+<text x="473.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Conversions</text>
+<rect x="558" y="100" width="166" height="94" rx="4" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+<text x="641.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Wholesale</text>
+<text x="641.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Order Books</text>
+<text x="641.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Sell-Through</text>
+<text x="641.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Batch</text>
+<rect x="726" y="100" width="166" height="94" rx="4" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+<text x="809.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Franchise</text>
+<text x="809.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Sell-In Orders</text>
+<text x="809.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">API</text>
+<text x="809.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Commitments</text>
+<rect x="894" y="100" width="166" height="94" rx="4" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+<text x="977.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Promo Calendar</text>
+<text x="977.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Campaigns</text>
+<text x="977.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Discounts</text>
+<text x="977.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Weekly</text>
+<rect x="1062" y="100" width="166" height="94" rx="4" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+<text x="1145.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Ext. Signals</text>
+<text x="1145.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Weather</text>
+<text x="1145.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Macro Indicators</text>
+<text x="1145.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">IBGE</text>
+<rect x="1230" y="100" width="166" height="94" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+<text x="1313.0" y="122" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#78350f">✦ Consumer Intel</text>
+<text x="1313.0" y="136" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#78350f">Google Trends</text>
+<text x="1313.0" y="149" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#78350f">Social Listening</text>
+<text x="1313.0" y="162" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#78350f">AI Chatbots</text>
+<path d="M 720.0 198.0 Q 720.9 209.0 720.0 220.0" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 717.8 213.4 L 720.0 220.0 L 723.2 213.8" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="222" width="1360" height="92" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="643.75" y="212" width="152.5" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="226" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">INGESTION LAYER (AWS)</text>
+<rect x="54" y="240" width="447" height="72" rx="4" fill="#f5f5f5" stroke="#a3a3a3" stroke-width="2"/>
+<text x="277.5" y="260" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#000000">AWS MSK (Kafka)</text>
+<text x="277.5" y="276" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Streaming · POS + eComm</text>
+<text x="277.5" y="290" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Managed Kafka clusters</text>
+<rect x="508" y="240" width="447" height="72" rx="4" fill="#f5f5f5" stroke="#a3a3a3" stroke-width="2"/>
+<text x="731.5" y="260" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#000000">AWS Kinesis</text>
+<text x="731.5" y="276" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Clickstream firehose</text>
+<text x="731.5" y="290" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Real-time data streams</text>
+<rect x="962" y="240" width="447" height="72" rx="4" fill="#f5f5f5" stroke="#a3a3a3" stroke-width="2"/>
+<text x="1185.5" y="260" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#000000">S3 + AWS Lambda</text>
+<text x="1185.5" y="276" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Batch file drops</text>
+<text x="1185.5" y="290" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#737373">Event-triggered ingestion</text>
+<path d="M 720.0 314.0 Q 721.8 325.0 720.0 336.0" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 718.3 329.2 L 720.0 336.0 L 723.7 330.1" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="734.0" y="325" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#a3a3a3">Delta Live Tables (DLT)</text>
+<rect x="40" y="338" width="1360" height="126" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="565.75" y="328" width="308.5" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="342" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">DATABRICKS LAKEHOUSE — MEDALLION ARCHITECTURE</text>
+<rect x="54" y="356" width="447" height="106" rx="4" fill="#292524" stroke="#d97706" stroke-width="2"/>
+<text x="277.5" y="374" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="900" fill="#fef3c7">BRONZE</text>
+<text x="277.5" y="388" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#fef3c7">Raw · Append-Only</text>
+<line x1="62" y1="396" x2="493" y2="396" stroke="#d97706" stroke-width="1"/>
+<text x="70" y="410" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— sap_erp.*</text>
+<text x="70" y="422" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— pos.*</text>
+<text x="70" y="434" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— ecomm.*</text>
+<text x="70" y="446" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— wholesale.*</text>
+<text x="70" y="458" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— franchise.*</text>
+<text x="70" y="470" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— promo.*</text>
+<text x="70" y="482" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— external.*</text>
+<text x="70" y="494" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#fef3c7">— consumer_intel.* ✦</text>
+<rect x="508" y="356" width="447" height="106" rx="4" fill="#525252" stroke="#d4d4d4" stroke-width="2"/>
+<text x="731.5" y="374" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="900" fill="#ffffff">SILVER</text>
+<text x="731.5" y="388" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#ffffff">Cleansed · Conformed</text>
+<line x1="516" y1="396" x2="947" y2="396" stroke="#d4d4d4" stroke-width="1"/>
+<text x="524" y="410" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">— Unified Product Master</text>
+<text x="524" y="422" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">— Standardized Demand Signals</text>
+<text x="524" y="434" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">— Promo Calendar Clean</text>
+<text x="524" y="446" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">— Consumer Intel Normalized ✦</text>
+<rect x="962" y="356" width="447" height="106" rx="4" fill="#eab308" stroke="#a16207" stroke-width="2"/>
+<text x="1185.5" y="374" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="900" fill="#000000">GOLD</text>
+<text x="1185.5" y="388" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#000000">Business-Ready · ML Features</text>
+<line x1="970" y1="396" x2="1401" y2="396" stroke="#a16207" stroke-width="1"/>
+<text x="978" y="410" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">— Feature Store (20+ features)</text>
+<text x="978" y="422" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">— Forecast Outputs</text>
+<text x="978" y="434" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">— Accuracy Metrics</text>
+<text x="978" y="446" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">— Demand Analytics Views</text>
+<text x="720.0" y="470" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#a3a3a3">Delta Live Tables · Quality Gates · Auto-scaling</text>
+<path d="M 720.0 480.0 Q 722.7 491.0 720.0 502.0" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 718.9 495.1 L 720.0 502.0 L 724.2 496.4" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="504" width="1360" height="96" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="634.0" y="494" width="172.0" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="508" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">ML PLATFORM (DATABRICKS)</text>
+<rect x="54" y="522" width="268" height="76" rx="4" fill="#262626" stroke="#525252" stroke-width="2"/>
+<text x="188.0" y="544" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Feature Store</text>
+<text x="188.0" y="560" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#a3a3a3">Unity Catalog · 20+ features</text>
+<rect x="326" y="522" width="268" height="76" rx="4" fill="#262626" stroke="#525252" stroke-width="2"/>
+<text x="460.0" y="544" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Training Orchestration</text>
+<text x="460.0" y="560" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#a3a3a3">Databricks Workflows · Auto-retrain</text>
+<rect x="598" y="522" width="268" height="76" rx="4" fill="#262626" stroke="#525252" stroke-width="2"/>
+<text x="732.0" y="544" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">MLflow Registry</text>
+<text x="732.0" y="560" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#a3a3a3">Staging → Champion → Production</text>
+<rect x="870" y="522" width="268" height="76" rx="4" fill="#262626" stroke="#525252" stroke-width="2"/>
+<text x="1004.0" y="544" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Batch Scoring</text>
+<text x="1004.0" y="560" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#a3a3a3">Gold Tables · Daily forecasts</text>
+<rect x="1142" y="522" width="268" height="76" rx="4" fill="#262626" stroke="#525252" stroke-width="2"/>
+<text x="1276.0" y="544" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">On-Demand Serving</text>
+<text x="1276.0" y="560" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#a3a3a3">Scenario Planner API · <200ms</text>
+<path d="M 322.0 560.0 Q 324.0 558.6 326.0 560.0" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M 319.2 558.4 L 326.0 560.0 L 322.4 554.0" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 594.0 560.0 Q 596.0 562.1 598.0 560.0" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M 595.5 566.6 L 598.0 560.0 L 591.6 562.8" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 866.0 560.0 Q 868.0 560.1 870.0 560.0" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M 863.7 563.1 L 870.0 560.0 L 863.4 557.6" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1138.0 560.0 Q 1140.0 558.1 1142.0 560.0" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M 1135.4 557.6 L 1142.0 560.0 L 1139.2 553.6" stroke="#a3a3a3" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 720.0 600.0 Q 718.2 611.0 720.0 622.0" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 716.3 616.1 L 720.0 622.0 L 721.7 615.2" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="624" width="1360" height="112" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="601.5" y="614" width="237.0" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="628" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">THREE-MODULE USER EXPERIENCE LAYER</text>
+<rect x="54" y="642" width="447" height="92" rx="4" fill="#000000" stroke="#000000" stroke-width="2"/>
+<text x="277.5" y="664" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="900" fill="#ffffff">⚗  MLOps Studio</text>
+<text x="277.5" y="680" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#a3a3a3">Data Scientists</text>
+<line x1="70" y1="688" x2="485" y2="688" stroke="#525252" stroke-width="1"/>
+<text x="277.5" y="702" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#d4d4d4">Challenger Lab · A/B Testing · Model Cards</text>
+<rect x="508" y="642" width="447" height="92" rx="4" fill="#000000" stroke="#000000" stroke-width="2"/>
+<text x="731.5" y="664" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="900" fill="#ffffff">⊞  Scenario Planner</text>
+<text x="731.5" y="680" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#a3a3a3">Category Managers / Analysts</text>
+<line x1="524" y1="688" x2="939" y2="688" stroke="#525252" stroke-width="1"/>
+<text x="731.5" y="702" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#d4d4d4">Top-3 Model Comparison · What-if Simulation</text>
+<rect x="962" y="642" width="447" height="92" rx="4" fill="#000000" stroke="#000000" stroke-width="2"/>
+<text x="1185.5" y="664" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" font-weight="900" fill="#ffffff">▲  Executive Dashboard</text>
+<text x="1185.5" y="680" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#a3a3a3">C-Level & GMs</text>
+<line x1="978" y1="688" x2="1393" y2="688" stroke="#525252" stroke-width="1"/>
+<text x="1185.5" y="702" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#d4d4d4">Forecast vs KPI Tracking · Revenue at Risk</text>
+<rect x="40" y="748" width="1360" height="40" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="60" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#737373">GOVERNANCE SPINE:</text>
+<text x="220" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#a3a3a3">·</text>
+<text x="230" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#000000">Unity Catalog</text>
+<text x="382" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#a3a3a3">·</text>
+<text x="392" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#000000">End-to-End Lineage</text>
+<text x="544" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#a3a3a3">·</text>
+<text x="554" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#000000">RBAC by Module</text>
+<text x="706" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#a3a3a3">·</text>
+<text x="716" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#000000">Audit Logs (90d)</text>
+<text x="868" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#a3a3a3">·</text>
+<text x="878" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#000000">LGPD (Brazil)</text>
+<text x="1030" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#a3a3a3">·</text>
+<text x="1040" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#000000">LFPDPPP (Mexico)</text>
+<text x="1192" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="400" fill="#a3a3a3">·</text>
+<text x="1202" y="763" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="700" fill="#000000">Ley 25.326 (Argentina)</text>
+<path d="M 1313.0 194.0 Q 1315.0 235.0 1313.0 276.0" stroke="#d97706" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M 1310.6 269.4 L 1313.0 276.0 L 1316.0 269.7" stroke="#d97706" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1229" y="211" width="120" height="24" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<text x="1289" y="225" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="700" fill="#78350f">2–8 wk lead time</text>
+</svg>

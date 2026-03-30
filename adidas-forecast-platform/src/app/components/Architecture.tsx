@@ -1,3 +1,5 @@
+import ArchitectureDiagramModal from "./ArchitectureDiagramModal";
+
 const layers = [
   {
     name: "Source Systems",
@@ -220,6 +222,9 @@ export default function Architecture() {
             </span>
           ))}
         </div>
+
+        {/* Architecture diagrams — modal with 3 tabs */}
+        <ArchitectureDiagramModal />
       </div>
     </section>
   );

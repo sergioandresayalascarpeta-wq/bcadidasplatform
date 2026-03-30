@@ -1,6 +1,4 @@
 {
-  "buildCommand": "npm --prefix adidas-forecast-platform run build",
-  "installCommand": "npm --prefix adidas-forecast-platform install",
-  "outputDirectory": "adidas-forecast-platform/.next",
-  "devCommand": "npm --prefix adidas-forecast-platform run dev"
+  "framework": "nextjs",
+  "rootDirectory": "adidas-forecast-platform"
 }

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 820" width="1440" height="820">
+<rect width="1440" height="820" fill="#ffffff"/>
+<text x="720.0" y="34" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="900" fill="#000000">ML Pipeline — Champion / Challenger Architecture</text>
+<text x="720.0" y="54" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#737373">MLflow · Databricks Workflows · Feature Store · Unity Catalog</text>
+<line x1="40" y1="64" x2="1400" y2="64" stroke="#e8e8e8" stroke-width="1"/>
+<rect x="40" y="80" width="1360" height="96" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="617.75" y="70" width="204.5" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="84" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">FEATURE STORE (UNITY CATALOG)</text>
+<rect x="54" y="98" width="268" height="70" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="188.0" y="112" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Demand Signals</text>
+<text x="188.0" y="126" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">7/14/28-day rolling avg</text>
+<text x="188.0" y="139" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Seasonal decomposition</text>
+<text x="188.0" y="152" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">YoY delta</text>
+<rect x="326" y="98" width="268" height="70" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="460.0" y="112" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Product Features</text>
+<text x="460.0" y="126" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Category, SKU, Price tier</text>
+<text x="460.0" y="139" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Margin, lifecycle stage</text>
+<text x="460.0" y="152" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">NPI flag</text>
+<rect x="598" y="98" width="268" height="70" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="732.0" y="112" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">External Signals</text>
+<text x="732.0" y="126" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Weather index</text>
+<text x="732.0" y="139" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Macro indicators</text>
+<text x="732.0" y="152" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Holiday calendar</text>
+<rect x="870" y="98" width="268" height="70" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="1004.0" y="112" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#78350f">Consumer Intel ✦</text>
+<text x="1004.0" y="126" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#78350f">Trend score (Google)</text>
+<text x="1004.0" y="139" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#78350f">Sentiment (Social)</text>
+<text x="1004.0" y="152" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#78350f">Query volume (AI)</text>
+<rect x="1142" y="98" width="268" height="70" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="1276.0" y="112" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Promo Features</text>
+<text x="1276.0" y="126" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Promo active flag</text>
+<text x="1276.0" y="139" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Discount depth</text>
+<text x="1276.0" y="152" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Campaign type</text>
+<path d="M 720.0 182.0 Q 720.0 193.0 720.0 204.0" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 717.3 197.6 L 720.0 204.0 L 722.7 197.6" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="212" width="1360" height="90" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="565.75" y="202" width="308.5" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="216" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">TRAINING ORCHESTRATION (DATABRICKS WORKFLOWS)</text>
+<rect x="54" y="230" width="268" height="64" rx="4" fill="#f5f5f5" stroke="#525252" stroke-width="1"/>
+<text x="188.0" y="244" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Baseline Models</text>
+<text x="188.0" y="257" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Naive Seasonal</text>
+<text x="188.0" y="269" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Simple Exponential Smoothing</text>
+<text x="188.0" y="281" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Trigger: weekly</text>
+<rect x="326" y="230" width="268" height="64" rx="4" fill="#e8e8e8" stroke="#525252" stroke-width="1"/>
+<text x="460.0" y="244" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Statistical</text>
+<text x="460.0" y="257" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">SARIMA / SARIMAX</text>
+<text x="460.0" y="269" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Holt-Winters ETS</text>
+<text x="460.0" y="281" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Trigger: weekly</text>
+<rect x="598" y="230" width="268" height="64" rx="4" fill="#d4d4d4" stroke="#525252" stroke-width="1"/>
+<text x="732.0" y="244" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">ML Models</text>
+<text x="732.0" y="257" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">LightGBM</text>
+<text x="732.0" y="269" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">XGBoost CatBoost</text>
+<text x="732.0" y="281" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Trigger: daily</text>
+<rect x="870" y="230" width="268" height="64" rx="4" fill="#a3a3a3" stroke="#525252" stroke-width="1"/>
+<text x="1004.0" y="244" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Deep Learning</text>
+<text x="1004.0" y="257" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">N-BEATS</text>
+<text x="1004.0" y="269" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Temporal Fusion Transformer (TFT)</text>
+<text x="1004.0" y="281" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Trigger: weekly</text>
+<rect x="1142" y="230" width="268" height="64" rx="4" fill="#262626" stroke="#525252" stroke-width="1"/>
+<text x="1276.0" y="244" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Ensemble</text>
+<text x="1276.0" y="257" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Stacking meta-model</text>
+<text x="1276.0" y="269" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Weighted blend optimization</text>
+<text x="1276.0" y="281" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Trigger: daily</text>
+<path d="M 720.0 308.0 Q 718.7 319.0 720.0 330.0" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 716.5 323.9 L 720.0 330.0 L 721.9 323.3" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="734.0" y="319" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#a3a3a3">MLflow auto-logging</text>
+<rect x="40" y="338" width="678" height="90" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="280.0" y="328" width="198.0" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="379.0" y="342" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">EXPERIMENT TRACKING (MLFLOW)</text>
+<rect x="54" y="358" width="167" height="58" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="137.5" y="373" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">WMAPE</text>
+<text x="137.5" y="390" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373"><20% overall</text>
+<rect x="223" y="358" width="167" height="58" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="306.5" y="373" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Coverage</text>
+<text x="306.5" y="390" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">≥95% SKU-channel</text>
+<rect x="392" y="358" width="167" height="58" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="475.5" y="373" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">MAE</text>
+<text x="475.5" y="390" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Absolute error</text>
+<rect x="561" y="358" width="167" height="58" rx="4" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+<text x="644.5" y="373" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Bias</text>
+<text x="644.5" y="390" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Forecast bias %</text>
+<rect x="732" y="338" width="668" height="90" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="931.25" y="328" width="269.5" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="1066.0" y="342" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">MODEL REGISTRY (MLFLOW + UNITY CATALOG)</text>
+<rect x="746" y="358" width="163" height="58" rx="4" fill="#e8e8e8" stroke="#737373" stroke-width="1"/>
+<text x="827.5" y="375" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="900" fill="#000000">Staging</text>
+<text x="827.5" y="392" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Validation held-out set</text>
+<rect x="911" y="358" width="163" height="58" rx="4" fill="#000000" stroke="#737373" stroke-width="1"/>
+<text x="992.5" y="375" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="900" fill="#ffffff">Champion</text>
+<text x="992.5" y="392" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Current production model</text>
+<rect x="1076" y="358" width="163" height="58" rx="4" fill="#525252" stroke="#737373" stroke-width="1"/>
+<text x="1157.5" y="375" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="900" fill="#ffffff">Challenger</text>
+<text x="1157.5" y="392" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Latest candidate</text>
+<rect x="1241" y="358" width="163" height="58" rx="4" fill="#f5f5f5" stroke="#737373" stroke-width="1"/>
+<text x="1322.5" y="375" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="11" font-weight="900" fill="#737373">Archived</text>
+<text x="1322.5" y="392" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#737373">Previous versions</text>
+<path d="M 722.0 383.0 Q 727.0 380.6 732.0 383.0" stroke="#000000" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M 725.0 382.6 L 732.0 383.0 L 727.4 377.7" stroke="#000000" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 720.0 434.0 Q 717.3 445.0 720.0 456.0" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 715.8 450.4 L 720.0 456.0 L 721.1 449.1" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="734.0" y="445" text-anchor="start" font-family="Inter, Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#a3a3a3">Challenger beats Champion → auto-promote</text>
+<rect x="40" y="464" width="1360" height="80" rx="6" fill="none" stroke="#a3a3a3" stroke-width="2" stroke-dasharray="6,4"/><rect x="656.75" y="454" width="126.5" height="20" rx="3" fill="#ffffff" stroke="#d4d4d4" stroke-width="1"/><text x="720.0" y="468" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#737373">SCORING & SERVING</text>
+<rect x="54" y="482" width="336" height="54" rx="4" fill="#262626" stroke="#525252" stroke-width="1"/>
+<text x="222.0" y="499" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">Batch Scoring (Daily)</text>
+<text x="222.0" y="516" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Databricks Workflows Gold Table writes</text>
+<rect x="394" y="482" width="336" height="54" rx="4" fill="#000000" stroke="#525252" stroke-width="1"/>
+<text x="562.0" y="499" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#ffffff">On-Demand API (<200ms)</text>
+<text x="562.0" y="516" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#ffffff">Databricks Model Serving Scenario Planner</text>
+<rect x="734" y="482" width="336" height="54" rx="4" fill="#e8e8e8" stroke="#525252" stroke-width="1"/>
+<text x="902.0" y="499" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Forecast Export</text>
+<text x="902.0" y="516" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">S3 → SAP IBP CSV / Parquet</text>
+<rect x="1074" y="482" width="336" height="54" rx="4" fill="#f5f5f5" stroke="#525252" stroke-width="1"/>
+<text x="1242.0" y="499" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#000000">Monitoring</text>
+<text x="1242.0" y="516" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="8" font-weight="400" fill="#000000">Data drift · WMAPE decay Auto-retrain triggers</text>
+</svg>
