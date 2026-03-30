@@ -148,94 +148,131 @@ Del repo (`01-architecture/data-flow-detail.md`):
 | Gold (BI views) | All | < 8 hours from actuals update | SQL Warehouse query freshness |
 
 ## 4) Éxito (KPIs que “se ven” en el output)
-Del repo (`02-technical-proposal/technical-proposal.md`):
-- Forecast accuracy (WMAPE):
-  - Baseline: ~35-40% (spreadsheet)
-  - Target (12 meses): < 20%
-  - Fuente en el sistema: `gold.forecast.accuracy_metrics`
-- Data latency:
-  - Baseline: T+2 a T+5
-  - Objetivo: T+0 ingestion, T+1 forecast
-  - Fuente: monitoreo de pipelines
-- Safety stock reduction: 10-15% (vía integración SAP IBP)
-- Demand planner adoption: 80%+ (uso real del producto)
-- Coverage de SKU: 95%+ automatizado
 
-## 5) Blueprint de presentación (18 slides) para construir el deck
-Puedes usar este bloque tal cual como “esqueleto” en NotebookLM para generar una presentación narrativa (ej. Marp, PowerPoint o Google Slides).
+### Business KPIs (primarios — visibles en Executive Dashboard)
+
+| KPI | Baseline | Target 12 meses |
+|-----|----------|----------------|
+| Inventory Opportunity Cost Reduction | Baseline TBD | **10–15% reducción** (stockout + overstock) |
+| Market Reaction Speed | 2–4 semanas (ciclo manual) | **< 3 días** (señal → decisión automatizada) |
+| Forecast-to-Plan Gap | ~35–40% desviación | **< 15% desviación** |
+| Revenue at Risk (eventos de stockout) | Baseline TBD | **20% reducción** |
+| Analyst Automation Rate | < 5% del volumen automatizado | **80%+ automatizado** (planners en excepciones) |
+
+### Technical KPIs (soporte — visibles en MLOps Studio)
+
+| KPI | Baseline | Target 12 meses |
+|-----|----------|----------------|
+| Forecast accuracy (WMAPE) | ~35–40% (spreadsheet) | **< 20%** |
+| SKU automated coverage | ~20% | **95%+** |
+| Data latency (pipeline) | T+2 a T+5 | **< 10 min (streaming)** |
+| Pipeline reliability | N/A | **99.5% uptime** |
+
+> **Nota clave:** WMAPE es un KPI de ingeniería visible para Data Scientists. Revenue at Risk y Market Reaction Speed son los outcomes de negocio. La plataforma habla los dos lenguajes — pero nunca los mezcla en la misma audiencia.
+
+### Consumer Intelligence — KPI de ventaja temporal
+- Detecta cambios de demanda **2 a 8 semanas antes** que los datos transaccionales (POS/eCommerce)
+- Fuente: Google Trends (`category_trend` feature), Social Listening (Brandwatch/Sprinklr), AI Chatbot query patterns
+- Uso principal: NPI cold-start forecasting — cuando no hay historial transaccional
+
+## 5) Blueprint de presentación (17 slides — deck actual)
+
+Este es el esqueleto del deck de sustentación para el Director of Data Engineering use case. Cada slide tiene un mensaje principal, un diferenciador y una transición.
 
 ### Slide 1 — Título
-- Mensaje: qué construimos y por qué ahora (forecasting ML-driven en LAM)
+- **Mensaje:** “From reactive planning to proactive demand intelligence”
+- Databricks Lakehouse · adidas LAM · March 2026
 
 ### Slide 2 — Agenda
-- The challenge → vision → platform architecture → forecasting strategy → governance → roadmap → success metrics
+- Challenge → Vision (tres módulos) → Architecture → Data Sources → Medallion → Module 1 MLOps Studio → Module 2 Scenario Planner → Module 3 Executive Dashboard → Forecasting Strategy → Governance → Compute & Cost → Roadmap → Success Metrics → Team & Risks
 
 ### Slide 3 — The Challenge
-- Fragmentación por canal/sistema
-- Latencia (T+2 a T+5) y dependencia de spreadsheets
-- IDs inconsistentes / lack of unified view
+- 7+ source systems sin interoperabilidad, el mismo SKU tiene ID diferente en SAP, POS, eCommerce
+- Datos con 2–5 días de latencia; tendencias de demanda se mueven en horas
+- Planificación por planillas: cada canal tiene su propia versión de la verdad
 
-### Slide 4 — The Vision
-- Medallion Lakehouse unificado
-- Data más fresca + forecasting ML
-- Métricas objetivo (WMAPE < 20%, safety stock -10-15%)
+### Slide 4 — The Vision — Tres Módulos *(más diferenciador)*
+- **Diferenciador clave:** no un dashboard único — tres experiencias para tres personas distintas
+- Module 1 — MLOps Studio: Data Scientists → árbitros únicos de calidad de modelos
+- Module 2 — Scenario Planner: Category Managers → what-if sin expertise en ML
+- Module 3 — Executive Dashboard: C-Level → KPIs de negocio, sin WMAPE
 
 ### Slide 5 — Platform Architecture
-- Fuente → Ingestion → Bronze/Silver/Gold → ML platform → Consumers
-- Governance spine (Unity Catalog / RBAC / lineage / audit)
+- Databricks Lakehouse en AWS sa-east-1 (São Paulo) — todo en una plataforma
+- Flujo: Source Systems (8) → Ingestion (MSK/Kinesis/S3) → Medallion (Bronze/Silver/Gold) → ML Platform → Tres Módulos
+- Governance spine: Unity Catalog, lineage, RBAC por módulo, audit logs 90d
 
-### Slide 6 — Data Sources & Ingestion
-- Batch vs streaming (MSK/Kinesis/S3 + triggers)
-- Principio de ingesta según necesidad (responsiveness vs costo)
+### Slide 6 — Data Sources + Consumer Intelligence *(diferenciador)*
+- 7 fuentes estándar + **Consumer Intelligence Layer** (nueva)
+- Google Trends, Social Listening (Brandwatch/Sprinklr), AI Chatbot query signals
+- Ventaja: 2–8 semanas de adelanto sobre datos transaccionales
+- Uso crítico: NPI cold-start (productos sin historial)
 
 ### Slide 7 — Medallion Architecture
-- Bronze append-only (source of truth)
-- Silver cleansing/conformance
-- Gold business-ready (features, forecasts, metrics)
+- Bronze: append-only, reprocess safety net — `consumer_intel.*` misma gobernanza
+- Silver: trabajo duro → Unified Product Master (EAN match → fuzzy → manual, >95% automático)
+- Gold: Feature Store 20+ features, outputs con intervalos de predicción, vistas por módulo
 
-### Slide 8 — Unified Product Master
-- Entity resolution: EAN/UPC exact → fuzzy description → manual exceptions
-- SCD Type 2 para consistencia histórica
+### Slide 8 — Module 1 — MLOps Studio *(Data Scientists)*
+- Production Monitor: WMAPE dashboards, drift alerts, retraining history
+- Challenger Lab: experiment registration, A/B test, model promotion
+- **Punto más importante:** Data Scientists = únicos árbitros. Sin acción explícita en MLflow Registry, nada entra a producción
 
-### Slide 9 — Forecasting Model Strategy
-- Tres tiers: Statistical / ML / DL + Ensemble stacking
-- Por qué no usar un único modelo (channel-specific patterns)
+### Slide 9 — Module 2 — Scenario Planner *(Category Managers)*
+- 4 pasos: contexto → top-3 models (rankeados por Data Scientists) → what-if params → forecast selection
+- What-if: promo discount %, competitor event, macro shock, seasonal multiplier
+- Diseño clave: usuarios retienen autoridad de decisión → adopción alta, fricción baja
 
-### Slide 10 — MLOps Pipeline
-- Feature store → training → MLflow registry → batch scoring → monitoreo
-- A/B champion/challenger
+### Slide 10 — Module 3 — Executive Dashboard *(C-Level)*
+- Forecast-to-Plan Gap (delta ML vs plan financiero)
+- Revenue at Risk (exposición stockout en USD por país/canal)
+- Market Reaction Speed (días desde señal hasta respuesta operativa)
+- **Regla de diseño:** cero WMAPE en esta pantalla
 
-### Slide 11 — Governance & Compliance
-- Unity Catalog, acceso por columnas, lineage, audit
-- Enfoque LGPD/LFPDPPP y data residency
+### Slide 11 — Forecasting Model Strategy
+- Statistical (Prophet, ETS): Wholesale — estacional, interpretable, rápido
+- ML (LightGBM, XGBoost): Retail — promo-driven, features ricos
+- Deep Learning (TFT, N-BEATS): eCommerce — millones de señales, patrones temporales complejos
+- Ensemble: pesos optimizados por channel-country, A/B validation ante cualquier cambio
 
-### Slide 12 — Compute & Cost
-- Estrategias de compute (spot, scheduled windows, scale-to-zero)
-- Por qué batch scoring reduce costo en forecasting semanal
+### Slide 12 — Data Governance & Compliance
+- Unity Catalog: metastore único, column-level + row-level access
+- RBAC por módulo: Data Scientists (write ML artifacts), Category Managers (read top-3 + what-if API), Executives (read-only KPI views)
+- LGPD (Brasil) · LFPDPPP (México) · Ley 25.326 (Argentina)
 
-### Slide 13 — Roadmap
-- Fases 0-4 en 12 meses
-- Primer valor (Month 7) y escalado a self-service (Phase 4)
+### Slide 13 — Compute & Cost
+- 70% Spot instances para batch → ahorro 60–70% vs on-demand
+- Scale-to-zero para model serving
+- Steady state: $22K–$31K/mes. Año 1: $250K–$370K infra. Payback año 2 en semanas
 
-### Slide 14 — Success Metrics
-- WMAPE target
-- Adoption, coverage, confiabilidad de pipelines
+### Slide 14 — Execution Roadmap
+- Phase 0 (Mes 1–2): AWS + Databricks + Unity Catalog + CI/CD
+- Phase 1 (Mes 2–5): Bronze→Gold Brasil + México. Entregable: Unified Product Master
+- Phase 2 (Mes 4–7): ML producción + **MLOps Studio live** → **primer valor de negocio mes 7**
+- Phase 3 (Mes 6–10): Consumer Intelligence + **Scenario Planner live**
+- Phase 4 (Mes 9–12): Full LAM + **Executive Dashboard live**
 
-### Slide 15 — Team & Operating Model
-- roles por fase y cómo se gestiona el trabajo
+### Slide 15 — Success Metrics
+- Business KPIs (5): Inventory Cost, Market Speed, Plan Gap, Revenue at Risk, Automation Rate
+- Technical KPIs (4): WMAPE, Coverage, Latency, Reliability
+- Frase clave: “WMAPE is an engineering metric. Revenue at Risk is a business outcome.”
 
-### Slide 16 — Risks
-- complejidad SAP connectors
-- adopción por planners
+### Slide 16 — Team & Risks
+- Risk más alto: adopción → mitigación: 4-week shadow mode + Scenario Planner mantiene control al usuario
+- Risk SAP: Fivetran pre-built connector → elimina 4–6 semanas de riesgo en Phase 1
+- Risk Consumer Intel: multi-provider → degradación graceful sin romper forecast core
 
-### Slide 17 — Change Management
-- shadow mode → guided adoption → ownership
+### Slide 17 — Q&A
+- Cierre: “Happy to go deeper on architecture decisions, model strategy, compliance, or the business case.”
+- Backup slides: Why Databricks vs Snowflake, Why not SageMaker, Cost by phase, Tech comparison matrix
 
-### Slide 18 — Summary & Next Steps
-- recap y “ask” para iniciar Phase 0
+## 6) Notas para NotebookLM (prompts recomendados)
 
-## 6) Notas para NotebookLM (cómo usar este doc)
-Sugerencia de tarea para NotebookLM (prompt):
-- “Usa la sección ‘1) Qué output produce la plataforma’ y ‘4) KPIs’ para redactar una narrativa ejecutiva y luego convertirla en un guion de 10–12 diapositivas.”
-- “Incluye definiciones y schemas (Gold tables) en un anexo o slide de detalle técnico.”
+Usa estos prompts en NotebookLM con este documento y `04-presentation/presentation.md` como fuentes:
+
+- **Para narrativa ejecutiva:** “Usa las secciones ‘4) KPIs’ y ‘5) Blueprint slide 10 y 15’ para redactar un resumen ejecutivo de 1 página del valor de negocio de la plataforma. Enfócate en los 5 Business KPIs, no en métricas técnicas.”
+- **Para preparar Q&A técnico:** “Lista las 10 preguntas técnicas más difíciles que podría hacer un panel de ingeniería senior sobre esta arquitectura, y dame respuestas cortas de 3 líneas máximo para cada una.”
+- **Para los tres módulos:** “Explica en lenguaje simple por qué la plataforma tiene tres módulos separados en lugar de un solo dashboard, y qué problema de adopción resuelve ese diseño.”
+- **Para Consumer Intelligence:** “Resume el propósito, las fuentes de datos, la ventaja temporal y los riesgos de la Consumer Intelligence Layer en 5 bullets de máximo 2 líneas.”
+- **Para el roadmap:** “¿En qué mes se entrega el primer valor de negocio y qué entregable concreto lo representa? ¿Cómo se justifica esa decisión de secuenciación?”
 

@@ -33,7 +33,9 @@ gantt
     Model Registry & Promotion Pipeline     :p2d, after p2b, 3w
     Forecast Output Gold Tables             :p2e, after p2c, 2w
     BI Dashboard Integration (Tableau)      :p2f, after p2e, 3w
+    MLOps Studio Module (Production Monitor + Challenger Lab) :p2h, after p2f, 3w
     SAP IBP Integration (Forecast Export)   :p2g, after p2e, 4w
+    Milestone: MLOps Studio Live            :milestone, m2b, after p2h, 0d
     Milestone: ML Forecasts in Production   :milestone, m2, after p2f, 0d
 
     section Phase 3 · Advanced Capabilities
@@ -44,7 +46,11 @@ gantt
     Ensemble Stacking Layer                 :p3e, after p3d, 4w
     A/B Testing Framework (Champion/Challenger) :p3f, after p3e, 3w
     Cross-Channel Cannibalization Features  :p3g, after p3e, 3w
+    Bronze: Consumer Intelligence (Trends + Social + AI)  :p3i, after p3c, 4w
+    Silver: Consumer Intel Normalized + Feature Engineering :p3j, after p3i, 3w
+    Scenario Planner Module (What-If Simulation)          :p3k, after p3j, 4w
     NPI Forecasting Module (Cold Start)     :p3h, after p3e, 4w
+    Milestone: Scenario Planner Live        :milestone, m3b, after p3k, 0d
     Milestone: All 4 Channels Forecasting   :milestone, m3, after p3f, 0d
 
     section Phase 4 · Scale & Optimize
@@ -54,6 +60,8 @@ gantt
     Self-Service Forecasting Portal         :p4d, after p4a, 6w
     Continuous Learning Pipeline            :p4e, after p4c, 4w
     Top-Down / Bottom-Up Reconciliation     :p4f, after p4d, 4w
+    Executive Dashboard Module (KPI Command Center)       :p4g, after p4d, 4w
+    Milestone: Executive Dashboard Live     :milestone, m4b, after p4g, 0d
     Milestone: Full LAM Coverage            :milestone, m4, after p4f, 0d
 ```
 
@@ -136,6 +144,7 @@ gantt
 | Forecast Outputs | `gold.forecast.outputs_v1`: point forecast + 80% prediction interval by SKU × channel × country × week. 26-week horizon | Models in registry |
 | BI Integration | Tableau dashboards: forecast vs. actuals, accuracy by channel/country/category, drill-down to SKU. Connected via Databricks SQL Serverless | Gold forecast tables populated |
 | SAP IBP Export | Automated weekly export of forecasts to SAP IBP format (CSV/API). Reconciliation report for supply chain planners | Forecast outputs stable |
+| MLOps Studio | Production Monitor view (WMAPE, drift, retraining history) + Challenger Lab (A/B test registration, model promotion/retirement via MLflow Registry). Data Scientists are sole arbiters of model promotion | Forecast Outputs + BI Integration |
 
 **Exit Criteria:**
 - [ ] Automated weekly forecasts for Brazil eCommerce + Retail channels
@@ -168,6 +177,8 @@ gantt
 | Ensemble Layer | Weighted stacking: combine Statistical + ML + DL outputs. Weights optimized per channel-country on holdout set. Automatic weight rebalancing monthly | All model families trained |
 | A/B Testing | Champion/challenger framework: deploy new models to 20% of SKU-country combinations, compare WMAPE over 4-week evaluation window. Automated promotion if challenger wins | Ensemble operational |
 | Cross-Channel Features | Channel mix share, cross-channel correlation, promo spillover indicators. Enable cannibalization effect modeling | All 4 channels in Silver |
+| Consumer Intelligence Ingestion | Bronze: Google Trends API (daily, by category x country), Social Listening API (Brandwatch/Sprinklr), AI chatbot query signals. Silver: weekly grain normalization, sentiment indexing, consumer signal index feature. Adds 2–8 week demand lead time for NPI and trend-break detection | External Signals operational |
+| Scenario Planner Module | What-if simulation UI: top-3 model view ranked by Data Scientists, scenario parameters (promo %, competitor event, macro shock, seasonal multiplier), forecast selection → SAP IBP export | Consumer Intelligence + On-Demand API |
 | NPI Forecasting | Cold-start module for new products (<12 weeks history). Category-level priors + attribute similarity (color, gender, price point). Transfer learning from analogous products | Feature Store + product attributes |
 
 **Exit Criteria:**
@@ -192,6 +203,7 @@ gantt
 | Self-Service Portal | Streamlit or Databricks Apps. Demand planners can: view/adjust forecasts, run what-if scenarios, override at SKU level, export to Excel/IBP | Forecasts + scoring endpoints |
 | Continuous Learning | Online learning pipeline: monitor drift (PSI > 0.2), auto-trigger retraining. Weekly model refresh with latest 52 weeks of data. Alerting on sustained MAPE degradation (>5pp over 4 weeks) | A/B framework operational |
 | Top-Down/Bottom-Up Reconciliation | Reconcile SKU-level bottom-up forecasts with top-down financial targets from Finance/Commercial. Proportional adjustment + planner override workflow | Self-service portal operational |
+| Executive Dashboard Module | KPI command center: Forecast-to-Plan Gap, Revenue at Risk, Inventory Opportunity Cost, Market Reaction Speed (<3 days target), Analyst Automation Rate. Business language only — no WMAPE. Updated weekly post forecast cycle | Self-service portal + Continuous Learning |
 
 **Exit Criteria:**
 - [ ] All 6+ LAM countries live with automated forecasting
@@ -210,9 +222,9 @@ gantt
 |-------|----------|--------------|----------------|
 | **Phase 0** | Weeks 1-8 | Infrastructure live | Foundation ready |
 | **Phase 1** | Weeks 5-18 | Bronze-to-Gold pipeline | Unified data, data quality visibility |
-| **Phase 2** | Weeks 14-28 | ML forecasts in production | First accuracy improvement (WMAPE < 20%) |
-| **Phase 3** | Weeks 24-40 | All 4 channels forecasting | Ensemble models, cross-channel intelligence |
-| **Phase 4** | Weeks 36-52 | Full LAM coverage | Self-service, continuous learning, reconciliation |
+| **Phase 2** | Weeks 14-28 | ML forecasts in production + **MLOps Studio live** | First accuracy improvement + **Data Scientists module** |
+| **Phase 3** | Weeks 24-40 | All 4 channels + **Scenario Planner live** | Ensemble models + **Consumer Intelligence + Business Analyst module** |
+| **Phase 4** | Weeks 36-52 | Full LAM + **Executive Dashboard live** | Self-service + **C-Level module + all three modules operational** |
 
 **First value delivery:** Month 7 (Phase 2 milestone — ML forecasts live for Brazil eComm + Retail)
 

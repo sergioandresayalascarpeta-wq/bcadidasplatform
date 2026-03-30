@@ -1,201 +1,215 @@
 # Speaker Notes — Demand Forecasting Platform Presentation
+## adidas LAM | Director of Data Engineering Use Case
 
-## Timing Guide (30 minutes)
+---
+
+## Timing Guide (30 minutes total)
 
 | Slide | Topic | Time | Cumulative |
 |-------|-------|------|-----------|
 | 1 | Title | 0:30 | 0:30 |
 | 2 | Agenda | 0:30 | 1:00 |
-| 3 | The Challenge | 2:00 | 3:00 |
-| 4 | The Vision | 2:00 | 5:00 |
-| 5 | Platform Architecture | 2:30 | 7:30 |
-| 6 | Data Sources & Ingestion | 2:00 | 9:30 |
-| 7 | Medallion Architecture | 2:30 | 12:00 |
-| 8 | Unified Product Master | 2:00 | 14:00 |
-| 9 | Forecasting Model Strategy | 3:00 | 17:00 |
-| 10 | MLOps Pipeline | 2:00 | 19:00 |
-| 11 | Governance & Compliance | 2:00 | 21:00 |
-| 12 | Compute & Cost | 2:00 | 23:00 |
-| 13 | Roadmap | 2:00 | 25:00 |
-| 14 | KPIs | 1:30 | 26:30 |
-| 15 | Team Structure | 1:00 | 27:30 |
-| 16 | Risks | 1:00 | 28:30 |
-| 17 | Change Management | 0:30 | 29:00 |
-| 18 | Summary & Next Steps | 1:00 | 30:00 |
+| 3 | The Challenge | 2:30 | 3:30 |
+| 4 | The Vision — Three Modules | 2:30 | 6:00 |
+| 5 | Platform Architecture | 2:30 | 8:30 |
+| 6 | Data Sources + Consumer Intelligence | 2:30 | 11:00 |
+| 7 | Medallion Architecture | 2:00 | 13:00 |
+| 8 | Module 1 — MLOps Studio | 2:00 | 15:00 |
+| 9 | Module 2 — Scenario Planner | 2:30 | 17:30 |
+| 10 | Module 3 — Executive Dashboard | 1:30 | 19:00 |
+| 11 | Forecasting Model Strategy | 2:30 | 21:30 |
+| 12 | Data Governance & Compliance | 2:00 | 23:30 |
+| 13 | Compute & Cost | 1:30 | 25:00 |
+| 14 | Execution Roadmap | 2:00 | 27:00 |
+| 15 | Success Metrics | 1:30 | 28:30 |
+| 16 | Team & Risks | 1:00 | 29:30 |
+| 17 | Q&A | 0:30 | 30:00 |
 
 ---
 
 ## Slide-by-Slide Notes
 
 ### Slide 1 — Title
-- Brief introduction, thank the panel for their time
-- Set expectations: "In the next 30 minutes, I'll walk you through our proposed architecture for a demand forecasting platform that serves all of adidas LAM — covering the technical design, the ML strategy, the execution plan, and the business outcomes we're targeting."
+- Brief intro. Thank the panel.
+- Opening: *"In the next 30 minutes I'll walk you through a demand forecasting platform for adidas LAM — the architecture, the ML strategy, the three user modules that make this usable by everyone from Data Scientists to the CEO, and how we measure success in business terms."*
+- 30 seconds max.
+
+---
 
 ### Slide 2 — Agenda
-- Quick scan, no need to read every item
-- Mention: "I've structured this to start with the business problem, move into the technical solution, and close with how we execute and measure success."
+- Do not read the 10 items. Instead:
+- *"I've structured this to start with the business problem, then the platform vision, then go deep on each of the three user modules — because how a platform is used is just as important as how it's built — and close with execution plan and metrics."*
+- Emphasis: "three user modules" — this differentiates the proposal.
+
+---
 
 ### Slide 3 — The Challenge
 **Key talking points:**
-- "Today, demand forecasting in LAM is essentially a spreadsheet exercise. Each channel team does their own thing, with their own data, their own process."
-- "We have 7+ source systems that don't talk to each other. The same shoe has a different ID in SAP, in our POS systems, in eCommerce, and in wholesale order books."
-- "Our data is 2 to 5 days stale by the time it reaches planners. In a market where promotions and trends move fast, that's the difference between capturing demand and losing it."
-- **For C-level:** "The cost of this: every percentage point of forecast inaccuracy translates directly into either stockouts — lost sales — or overstock — margin erosion through markdowns."
-- **Transition:** "So what does better look like?"
+- *"Today, demand forecasting in LAM is a spreadsheet exercise. Each channel does their own thing, with their own data, their own process, and their own version of the truth."*
+- *"7+ source systems that don't speak to each other. The same shoe has a different ID in SAP, in POS, in eCommerce, and in wholesale order books."*
+- *"Data is 2 to 5 days stale by the time it reaches planners. In a market where trends move in hours, that's the difference between capturing demand and losing it."*
+- **For C-level:** *"The cost isn't just inaccuracy — it's speed. By the time we detect a demand shift, plan a response, and execute — the window of opportunity has already closed."*
 
-### Slide 4 — The Vision
-**Key talking points:**
-- Walk through the "From → To" table, emphasizing the business outcomes, not the technology
-- "We're targeting WMAPE below 20%, down from roughly 35-40% today. That's not just a number — for adidas LAM's volume, that translates to a meaningful reduction in safety stock requirements."
-- "95% automated SKU coverage means planners spend their time on exceptions and judgment calls, not on manually forecasting thousands of SKUs in spreadsheets."
-- **Transition:** "Let me show you how we build this."
+**Transition:** *"So what does better look like? Three modules — one platform."*
+
+---
+
+### Slide 4 — The Vision — Three Modules
+**Most differentiating slide. Take your time.**
+
+- *"What I'm proposing is not a single dashboard that tries to serve everyone. That fails because a Data Scientist and a CEO don't have the same questions, context, or time budget."*
+- Walk each module:
+  - *"Module 1, MLOps Studio — Data Scientists own production. No model enters or exits production without their explicit action. They are the arbiters of model quality."*
+  - *"Module 2, Scenario Planner — Category Managers run what-if simulations. They see the top-3 models ranked by the Data Scientists, configure market scenarios, select the forecast that fits their domain knowledge."*
+  - *"Module 3, Executive Dashboard — C-Level tracks business KPIs: Forecast-to-Plan Gap, Revenue at Risk, Market Reaction Speed. Weekly. No statistical jargon on this screen."*
+- *"Each module has a clear owner, a clear decision, and a clear outcome. That's how this platform gets adopted."*
+
+**Transition:** *"Let me show you the architecture that powers all three."*
+
+---
 
 ### Slide 5 — Platform Architecture
 **Key talking points:**
-- "This is a Databricks Lakehouse on AWS. Think of it as: raw data comes in on the left, gets progressively refined through three layers, and ML-driven forecasts come out on the right."
-- Point to the three layers: "Bronze is raw data, Silver is cleaned and unified, Gold is business-ready and feeds our ML models."
-- "The governance spine at the bottom — Unity Catalog — provides access control, lineage, and audit across everything. This is how we stay compliant with LGPD and other LAM regulations."
-- **For technical audience:** "We're using Delta Lake on S3 for all storage, MSK for streaming, and Delta Live Tables for pipeline orchestration."
-- **Transition:** "Let me zoom into the data sources."
+- *"Databricks Lakehouse on AWS sa-east-1, Sao Paulo. Everything — ETL, feature engineering, ML training, serving — on one platform. No multi-cloud complexity, no data copying between systems."*
+- Walk top to bottom:
+  - *"Source Systems — 8 domains, including a new layer: Consumer Intelligence."*
+  - *"Ingestion — streaming via MSK and Kinesis for POS and eCommerce, batch for SAP, Wholesale, Franchise."*
+  - *"Medallion layers — Bronze raw, Silver cleansed, Gold business-ready."*
+  - *"ML Platform — Feature Store, MLflow Registry, batch scoring, on-demand serving for the Scenario Planner API."*
+  - *"At the top, the three user modules."*
+- *"Unity Catalog at the bottom: lineage, access control, compliance audit across every asset."*
 
-### Slide 6 — Data Sources & Ingestion
+**For technical audience:** *"Delta Live Tables manages pipeline execution with declarative quality gates. If Silver fails validation, Gold doesn't refresh. We don't propagate bad data."*
+
+---
+
+### Slide 6 — Data Sources — Consumer Intelligence
 **Key talking points:**
-- "We have 8 distinct source systems. The key design decision: streaming where responsiveness matters — POS and eCommerce — and batch where daily is sufficient — SAP, wholesale, franchise."
-- "For SAP, we're using Fivetran rather than building custom connectors. SAP integration is notoriously complex; pre-built connectors reduce risk and save 4-6 weeks."
-- "The total daily volume is roughly 260 million events across all sources. The platform needs to handle this at LAM scale."
+- Walk the table briefly: SAP, POS, eCommerce, Wholesale, Franchise, External.
+- Pause on Consumer Intelligence:
+  - *"Google Trends, social listening — Brandwatch, Sprinklr — and AI chatbot query patterns. What people are searching and asking about right now."*
+  - *"These signals surface demand shifts 2 to 8 weeks before they appear in a sales transaction. If searches for 'running shoes Colombia' spike and social sentiment around a category turns positive, we know 6 weeks before the POS confirms it."*
+  - *"For NPI forecasting — new products with zero sales history — this is the primary signal. It initializes cold-start forecasts when we have no transactional data."*
+- **Anticipated — data quality risk:** *"We treat these as leading indicators with controlled weight in the ensemble, not primary drivers. Freshness monitoring in MLOps Studio. Multi-provider strategy to avoid single-API dependency."*
+
+---
 
 ### Slide 7 — Medallion Architecture
 **Key talking points:**
-- "Bronze is our safety net — raw, append-only, no transformations. If anything goes wrong downstream, we can always reprocess from Bronze."
-- "Silver is where the hard work happens — especially the unified product master, which I'll detail next."
-- "Gold is what the business sees — features for ML, forecast outputs, and BI-optimized views."
-- **For technical audience:** "Delta Live Tables manages dependencies and quality gates between layers. If a Silver table fails quality checks, downstream Gold tables don't refresh — we don't propagate bad data."
-
-### Slide 8 — Unified Product Master
-**Key talking points:**
-- "This is arguably the most critical component. Today, the same running shoe has a completely different identifier in every system we operate."
-- "Our approach is three-tier entity resolution: first we match on universal barcodes — EAN/UPC — which catches about 70-80%. Then fuzzy matching on description, color, and size catches another 15-20%. The remaining exceptions go through a manual mapping process maintained by the Product Data team."
-- "Target is >95% automated match rate. This unlocks the ability to see total demand for a product across eCommerce, retail, wholesale, and franchise — which is essential for accurate forecasting."
-- **For C-level:** "Without this, we can't answer the basic question: how much demand is there for this product across all our channels?"
-
-### Slide 9 — Forecasting Model Strategy
-**Key talking points:**
-- "We are NOT betting on a single model. Different demand patterns need different approaches."
-- "eCommerce, with millions of daily signals and rich clickstream features, benefits from deep learning models that can capture complex temporal patterns."
-- "Wholesale, with 50 large accounts and strong seasonal cycles, is better served by classical statistical methods like Prophet."
-- "Retail, where promotions drive most variance, is a sweet spot for gradient-boosted trees that can explicitly model promotional uplift."
-- "Franchise, with limited data visibility, relies on statistical methods with category-level priors — essentially borrowing strength from similar products."
-- "The ensemble layer on top combines all three, optimized per channel and country. This is the same approach used by top Kaggle competitors and industry leaders in retail forecasting."
-- **Anticipated question:** "Why start with simpler models?" → "Statistical baselines in Phase 2 give us an accuracy benchmark in weeks, not months. ML and DL come in Phase 2 and 3, and they need to prove they beat the baseline."
-
-### Slide 10 — MLOps Pipeline
-**Key talking points:**
-- "This is the full lifecycle: features go in, trained models go into a registry with versioning, batch scoring produces weekly forecasts, and monitoring watches for drift."
-- "Batch scoring is our primary pattern — demand forecasting is inherently a weekly cycle. We don't need real-time inference for this."
-- "The monitoring loop is critical: if forecast accuracy degrades beyond a threshold, the system triggers automatic retraining. We don't wait for a planner to notice."
-- "A/B testing — champion/challenger — means we never deploy a new model without evidence it's better than what's in production."
-
-### Slide 11 — Governance & Compliance
-**Key talking points:**
-- "Unity Catalog is our governance backbone. It provides fine-grained access control — down to column level — which is essential for LGPD compliance."
-- "For Brazil specifically: PII columns in clickstream and POS data are masked via dynamic views. The data never leaves sa-east-1 — São Paulo region."
-- "For franchise partners who need access to forecast data: they see filtered views restricted to their own country and franchise, nothing else."
-- "Full audit trail — every query, every access — logged for 90 days in Unity Catalog system tables."
-- **For C-level:** "This isn't just a technical checkbox. LGPD fines can reach 2% of revenue. Our architecture makes compliance the default, not an afterthought."
-
-### Slide 12 — Compute & Cost
-**Key talking points:**
-- "Total steady-state cost: $22K to $31K per month for the entire platform — Databricks and AWS combined."
-- "Three key cost levers: Spot instances for 70% of compute — Databricks handles retries automatically. SQL Serverless for BI — pay only when analysts query. Model serving scales to zero when idle."
-- "We don't start at steady state. Phase 0-1 is about 40% of this — roughly $9K to $12K per month."
-- "Year 1 total infrastructure cost: approximately $300K to $380K, excluding team salaries."
-- **Anticipated question:** "How does this compare to current costs?" → "We should compare not just the infrastructure cost, but the cost of inaccurate forecasting — stockouts and overstock — which this platform directly addresses."
-
-### Slide 13 — Roadmap
-**Key talking points:**
-- "Four phases, 12 months to full maturity. But first value comes in Month 7."
-- "Phase 0 is pure infrastructure — 2 months. We need this foundation before anything else."
-- "Phase 1 builds the data platform: Bronze-to-Gold pipeline, unified product master. Focus on Brazil and Mexico first — they're the highest-volume markets with the most mature data."
-- "Phase 2 is where business value starts: ML forecasts in production for Brazil eComm and Retail. This is Month 7."
-- "Phase 3 extends to all four channels and introduces deep learning and ensemble models."
-- "Phase 4 rolls out to all LAM countries and delivers the self-service portal for demand planners."
-- "Phases overlap intentionally — we don't wait for one to fully complete before starting the next."
-
-### Slide 14 — KPIs
-**Key talking points:**
-- "These are measurable, time-bound targets. Not aspirational — these are what we commit to."
-- "WMAPE below 20% is achievable based on comparable implementations in retail. The current ~35-40% baseline gives us significant room for improvement."
-- "80% planner adoption is the non-technical metric that matters most. A perfect model nobody uses delivers zero business value."
-
-### Slide 15 — Team Structure
-**Key talking points:**
-- "10-12 people at steady state. We ramp up gradually — Phase 0 only needs 3-4 people."
-- "Communication cadence: weekly for the engineering team, bi-weekly demos for product and commercial, monthly executive updates, quarterly business impact reviews."
-
-### Slide 16 — Risks
-**Key talking points:**
-- "Our top risk is SAP connector complexity — SAP integration is always harder than expected. Mitigation: Fivetran's pre-built connector, and we engage the SAP Basis team in Week 1."
-- "Adoption resistance is a real risk. Mitigation: 4-week shadow mode where ML runs alongside spreadsheets, and we show planners the accuracy comparison before asking them to switch."
-
-### Slide 17 — Change Management
-- Brief overview: shadow mode → guided adoption → full ownership
-- "We don't force a switch. We prove the value first, then transition."
-
-### Slide 18 — Summary & Next Steps
-**Key talking points:**
-- Reiterate three takeaways (unified lakehouse, hybrid ML, first value Month 7)
-- "The ask today: approve Phase 0 kickoff. We need AWS account provisioning, SAP access, and team allocation to start in Week 1."
-- "Thank you — I'm happy to take questions."
+- *"Bronze: append-only, no transformations. Safety net. If anything breaks downstream, we reprocess from Bronze."*
+- *"Silver: the hard work. Especially the Unified Product Master — entity resolution across all systems. EAN/UPC match catches 70-80%, fuzzy match another 15-20%, manual mapping for the rest. Target: >95% automated. Without this, cross-channel aggregation is impossible."*
+- *"Gold: Feature Store with 20+ features, forecast outputs with prediction intervals, analytics views tuned to each of the three modules."*
+- *"Consumer Intelligence lands in bronze.consumer_intel — same governance, same lineage, same quality gates as every other domain."*
 
 ---
 
-## Anticipated Q&A
-
-### Q: "Why Databricks over Snowflake?"
-**A:** "For a demand forecasting platform, the differentiator is ML capability. Databricks has native MLflow, Feature Store, GPU support, and model serving — all built in. Snowflake is excellent for BI and SQL analytics, but for an ML-heavy workload like forecasting, we'd need to bolt on SageMaker or another ML platform, creating integration complexity. Databricks gives us ETL, ML, and serving on one platform." *(Refer to Backup Slide 1)*
-
-### Q: "Why not use SageMaker for ML?"
-**A:** "SageMaker would add a second compute plane. Our data lives in Delta Lake on Databricks — moving it to SageMaker for training, then back for serving, adds latency, complexity, and cost. MLflow on Databricks gives us the same capabilities — experiment tracking, model registry, serving — with tighter integration. SageMaker's real-time endpoint strengths aren't our primary use case; we're doing weekly batch forecasting." *(Refer to Backup Slide 2)*
-
-### Q: "The timeline seems aggressive — 12 months for the full platform?"
-**A:** "Phase 0-2 — foundation through first ML forecasts — is conservative at 7 months. That's where we deliver first business value. Phases 3-4 are more ambitious, and we've built in overlap and contingency. If we need to adjust, we can extend Phase 4 without impacting the core value delivery in Phases 1-2. The key is: we're not building everything at once. Each phase is independently valuable."
-
-### Q: "How do you handle new product introductions (NPI) with no history?"
-**A:** "NPI is a Phase 3 deliverable. The approach is cold-start modeling: we use category-level demand priors — essentially, 'new running shoes in Brazil historically sell at this rate' — combined with product attribute similarity to find analogous products. As the product accumulates its own data (8-12 weeks), the model transitions from prior-based to data-driven. Target: MAPE below 30% for the first 8 weeks."
-
-### Q: "What about cross-channel cannibalization?"
-**A:** "Phase 3 introduces cross-channel features: channel mix share, cross-channel correlation, and promotion spillover indicators. For example, a 30% discount on adidas.com during a sale event will cannibalize retail store demand for the same products. The ensemble model captures this by including cross-channel demand features. We measure cannibalization impact and feed it into forecast reconciliation."
-
-### Q: "How do you reconcile bottom-up forecasts with top-down financial targets?"
-**A:** "Phase 4 delivers a reconciliation workflow. The ML models produce bottom-up forecasts at SKU level. Finance provides top-down targets at category/country level. The platform applies proportional adjustment to align them, with a planner override capability for exceptions. This is the last-mile integration that makes the platform operationally useful for financial planning."
-
-### Q: "What's the cost compared to what we spend today?"
-**A:** "Today's direct cost may be lower because the forecasting is done in spreadsheets with no infrastructure. But the total cost of ownership includes the cost of inaccuracy: stockouts, overstock, markdowns, and lost sales. A conservative estimate of 10-15% safety stock reduction across LAM, applied to current inventory carrying costs, should significantly exceed the ~$300K-$380K Year 1 platform investment."
-
-### Q: "What happens if the models underperform?"
-**A:** "Statistical baselines (Prophet, ETS) are our safety net — they're reliable, interpretable, and ship in Phase 2. ML and DL models must prove they beat the baseline in A/B testing before replacing it. We never deploy a worse model. If all ML approaches underperform, optimized statistical models still deliver value over spreadsheets — they just run automatically at scale, with proper features and quality data."
-
-### Q: "How do you handle data quality issues?"
-**A:** "Three layers of defense. First, Delta Live Tables Expectations at the Silver layer — built-in quality gates that block bad data from propagating. Second, monitoring dashboards that track completeness, freshness, and anomalies daily. Third, ML-specific monitoring — if input feature distributions shift (measured by PSI), we alert before the model produces bad forecasts. Data quality is not an afterthought; it's a first-class citizen in the architecture."
-
-### Q: "What about real-time forecasting?"
-**A:** "Demand forecasting doesn't need real-time — inventory and supply chain decisions operate on weekly/monthly cycles. We do ingest data in near real-time (5-minute micro-batch for POS and eCommerce), which means our Bronze layer is always current. But forecasting runs on a weekly cycle because that's how the business consumes it. Phase 4's on-demand model serving endpoints are for what-if scenarios, not for replacing the weekly forecast."
+### Slide 8 — Module 1 — MLOps Studio
+**Key talking points:**
+- *"Two views: Production Monitor — live WMAPE dashboards, drift alerts, retraining history — and Challenger Lab — experiment registration, A/B test management, model promotion."*
+- **Most important point:** *"Data Scientists are the sole arbiters of what enters production. No model changes without their explicit MLflow Registry action. This removes the black-box problem — demand planners trust the forecasts because they know who is accountable."*
+- *"What MLOps Studio surfaces to Module 2: the top-3 production models per SKU x channel x country. Those become the options in the Scenario Planner."*
 
 ---
 
-## Additional Technical Emphasis (for panel Q&A)
+### Slide 9 — Module 2 — Scenario Planner
+**Key talking points:**
+- *"Designed for adoption. Category Managers need no ML expertise. They pick context — SKU, channel, country — and see three models already ranked by the Data Scientists."*
+- Walk the 4 steps: context, model view, what-if parameters, forecast selection.
+- *"What-if scenarios cover what category managers actually think about: promo discounts, competitor events, macro shocks, seasonal multipliers."*
+- **Key design choice:** *"Category Managers retain decision authority. They pick the forecast, they export to SAP IBP. The platform enhances their judgment — it doesn't replace it. That's why adoption friction is low."*
+- *"Consumer Intelligence signals are most visible here — if Google Trends for a category is surging, it shows in the forecast confidence intervals and model rankings."*
 
-### Q: "How does this integrate with AWS services?"
-**A:** "S3 is the storage backbone for raw-to-curated data, MSK/Kinesis handle streaming ingestion, and Lambda triggers event-driven processing when files/events arrive. This gives us a clear, decoupled ingestion pattern."
+---
 
-### Q: "What are cross-account and cross-region considerations for LAM?"
-**A:** "Cross-account governs secure sharing between AWS accounts using IAM roles and bucket policies. Cross-region addresses data residency, latency, and disaster recovery. We keep sensitive data in-region where required and replicate only what is necessary."
+### Slide 10 — Module 3 — Executive Dashboard
+**Key talking points:**
+- *"Designed for someone who has 10 minutes a week and needs to know whether the platform is delivering business value."*
+- Walk the KPI table:
+  - *"Forecast-to-Plan Gap: the delta between ML forecast and the financial plan. If it widens, the business plan is diverging from what the data says — early warning."*
+  - *"Revenue at Risk: projected stockout exposure in dollar terms by country and channel."*
+  - *"Market Reaction Speed: days from signal detection to operational response. Today 2-4 weeks. Target: under 3 days."*
+- **Key phrase to memorize:** *"There is no WMAPE on the Executive Dashboard. WMAPE is a Data Scientist metric. Executives track revenue, cost, and speed."*
 
-### Q: "How do you design for scalability and fault tolerance?"
-**A:** "Scalability comes from partitioned data models and parameterized pipelines by country/channel. Fault tolerance comes from checkpoints, retries, dead-letter handling, and reprocessing from Bronze as the source of truth."
+---
 
-### Q: "How do you control cost at scale?"
-**A:** "We enforce cluster policies, use autoscaling and auto-termination, mix spot and on-demand strategically, and keep BI on SQL Serverless to pay by usage."
+### Slide 11 — Forecasting Model Strategy
+**Key talking points:**
+- *"Not betting on one model family. Different demand patterns need different approaches."*
+- Three tiers:
+  - *"Statistical — Prophet, ETS — for Wholesale: seasonal, interpretable, fast. 50 large accounts with strong cycles."*
+  - *"ML — LightGBM, XGBoost — for Retail: promo-driven demand, rich features, explainable for commercial review."*
+  - *"Deep Learning — TFT, N-BEATS — for eCommerce: millions of daily signals, complex temporal patterns."*
+- *"Ensemble stacks all three. Weights optimized per channel-country. A/B testing validates any new model beats the champion before production."*
+- **For technical:** *"Expanding window cross-validation — not random split. Time series has temporal dependency. Random split leaks future data into training."*
+- **Anticipated:** *"Why start with statistical if deep learning is better?"* → *"Statistical baselines give us WMAPE benchmark in weeks. DL comes in Phase 3 and must beat the baseline — otherwise we add complexity for nothing."*
 
-### Q: "Why separate ETL, ML training, and serving workloads?"
-**A:** "Each workload has different performance and cost patterns. ETL runs on Jobs clusters, analytics on SQL Warehouses, training on dedicated ML compute, and inference on batch scoring plus Model Serving endpoints. Separation prevents resource contention and protects SLAs."
+---
+
+### Slide 12 — Data Governance & Compliance
+**Key talking points:**
+- *"Unity Catalog: single metastore across all workspaces. Column-level and row-level access control."*
+- RBAC by module: *"Data Scientists: write access to ML artifacts. Category Managers: read access to forecast top-3 and the what-if API. Executives: read-only on KPI views."*
+- Compliance: *"Three frameworks in LAM: LGPD Brazil — data localization, consent logging. LFPDPPP Mexico — privacy notice, ARCO rights. Argentina Ley 25.326 — habeas data, cross-border transfer controls."*
+- *"Implementation: column-level PII masking via Unity Catalog dynamic views, 90-day audit logs, data subject rights via Delta MERGE with full lineage."*
+
+---
+
+### Slide 13 — Compute & Cost
+**Key talking points:**
+- *"Two cost levers: 70% Spot instances for batch — saves 60-70% vs on-demand — and scale-to-zero for model serving."*
+- *"Steady state: $22K-$31K/month. Phase 0-1 is about 40% of that."*
+- **For CFO:** *"Year 1 infrastructure: $250K-$370K. ROI model in backup slides — payback in year 2 is weeks, not months."*
+
+---
+
+### Slide 14 — Execution Roadmap
+**Key talking points:**
+- *"Four phases, twelve months, each with a named module delivery."*
+- *"Phase 0: AWS, Databricks, Unity Catalog, CI/CD. Foundation."*
+- *"Phase 1: Bronze-to-Gold for Brazil and Mexico. First deliverable: the Unified Product Master — first time adidas LAM has a single SKU view across all channels."*
+- *"Phase 2: ML in production + MLOps Studio live. Month 7: Data Scientists have their module. First business value."*
+- *"Phase 3: Scenario Planner live. Category Managers have what-if simulation. Consumer Intelligence integrated."*
+- *"Phase 4: Executive Dashboard live. Full LAM. All three modules operational."*
+- **Emphasis:** *"First value at month 7 — not month 12."*
+
+---
+
+### Slide 15 — Success Metrics
+**Key talking points:**
+- *"Two-layer KPI structure — deliberate."*
+- Business KPIs: *"Inventory Opportunity Cost, Market Reaction Speed under 3 days, Forecast-to-Plan Gap, Revenue at Risk, Analyst Automation Rate. All in business language."*
+- Technical KPIs: *"WMAPE, coverage, latency. The engine metrics."*
+- **Key phrase:** *"WMAPE is an engineering metric. Revenue at Risk reduction is a business outcome. This platform speaks both languages."*
+- On Analyst Automation Rate: *"Today under 5% of forecast volume is generated automatically. Everything else is manual. Target: 80%+ automated — planners focus on exceptions and judgment calls."*
+
+---
+
+### Slide 16 — Team & Risks
+**Focus on Risks:**
+- Lead with Risk #3 (adoption): *"Highest risk on any data platform is not technical — it's adoption. Our mitigation: 4-week shadow mode. ML forecasts run in parallel with existing process. Planners compare accuracy before committing. The Scenario Planner keeps users in control — adoption friction is low."*
+- Risk #1 (SAP): *"Fivetran pre-built SAP connector, not custom BAPI. Removes 4-6 weeks of delivery risk from Phase 1."*
+- Risk #5 (Consumer Intelligence): *"Multi-provider strategy. If one API goes down, we degrade gracefully without breaking the core forecast."*
+
+---
+
+### Closing — Q&A Setup
+*"I'll stop there. Happy to go deeper on any part — architecture decisions, model strategy, compliance implementation, or the business case. What would be most useful for the panel?"*
+
+Backup slides ready: Why Databricks vs Snowflake, Why not SageMaker, Cost by phase, Technology comparison matrix.
+
+---
+
+## Key Phrases to Memorize
+
+| Situation | Phrase |
+|-----------|--------|
+| Opening | *"From reactive planning to proactive demand intelligence"* |
+| On three modules | *"One platform, three experiences — the CEO and the Data Scientist don't have the same questions"* |
+| On Consumer Intelligence | *"Surfaces demand shifts 2 to 8 weeks before they appear in a sales transaction"* |
+| On MLOps Studio | *"Data Scientists are the sole arbiters. No black box."* |
+| On Scenario Planner | *"Enhances judgment — doesn't replace it. That's why adoption is high."* |
+| On Executive Dashboard | *"There is no WMAPE on the Executive Dashboard."* |
+| On KPIs | *"WMAPE is an engineering metric. Revenue at Risk is a business outcome."* |
+| On timeline | *"First value at month 7 — not month 12."* |
+| On cost | *"$22K-$31K/month. Payback in year 2 measured in weeks."* |
+| If you don't know a LAM number | *"I don't have that figure, but here's the model — we apply it together with the real data."* |

@@ -47,7 +47,7 @@ The platform is designed around **three differentiated user experiences**, each 
 | Market Reaction Speed | 2–4 weeks (manual analysis cycle) | **< 3 days** (automated signal-to-decision) |
 | Forecast-to-Plan Gap | ~35–40% deviation | **< 15% deviation** |
 | Revenue at Risk (out-of-stock events) | Baseline TBD | **20% reduction** |
-| Analyst Time on Manual Forecasting | ~60% of planning cycle | **< 20%** (automation rate) |
+| Analyst Automation Rate | < 5% of forecast volume automated today | **80%+ automated** (planners focus on exceptions) |
 
 **Technical KPIs (supporting):**
 

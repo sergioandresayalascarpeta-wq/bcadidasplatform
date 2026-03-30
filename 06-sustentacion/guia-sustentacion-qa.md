@@ -9,16 +9,18 @@
 Memoriza estas tres versiones. Son lo más importante.
 
 ### ⚡ 30 segundos (elevator pitch)
-> "Propongo construir la plataforma centralizada de Demand Forecasting para adidas LAM: un Databricks Lakehouse en AWS con arquitectura Medallion que unifica datos de los 4 canales en 6 países, habilita modelos ML para forecasting automatizado y reduce el WMAPE del 35-40% actual a menos del 20% en 12 meses, con un primer valor entregable en el mes 7."
+> "Propongo construir la plataforma centralizada de Demand Forecasting para adidas LAM: un Databricks Lakehouse en AWS con arquitectura Medallion que unifica datos de 8 fuentes — incluyendo una capa de Consumer Intelligence con Google Trends, social listening y señales de chatbots IA que adelantan la demanda 2 a 8 semanas — y entrega tres módulos diferenciados: MLOps Studio para Data Scientists, Scenario Planner para Category Managers, y Executive Dashboard para C-Level. De WMAPE ~38% a <20% en 12 meses, con primer valor en el mes 7."
 
 ### 🎯 2 minutos (cuando te piden resumir la propuesta)
 > "El problema central es que adidas LAM hace forecasting en spreadsheets, con datos fragmentados en 7+ sistemas y latencias de T+2 a T+5. Eso se traduce en dos costos concretos: stockouts que pierden ventas, y overstock que erosiona margen con markdowns.
 >
 > La solución que propongo es una plataforma Databricks Lakehouse en AWS que resuelve esto en 4 fases a lo largo de 12 meses. La base es la arquitectura Medallion: Bronze para ingestión raw, Silver para datos limpios y un Unified Product Master que armoniza identidades de SKU a través de todos los sistemas, y Gold con tablas de features y outputs de forecast listos para negocio.
 >
-> Sobre eso construimos una estrategia ML híbrida: modelos estadísticos para volúmenes bajos, gradient boosting para canales con datos promocionales, y deep learning para eCommerce. Un ensemble combina las salidas y se optimiza por canal y país.
+> Sobre eso construimos una estrategia ML híbrida: modelos estadísticos para volúmenes bajos, gradient boosting para canales con datos promocionales, y deep learning para eCommerce. Un ensemble combina las salidas y se optimiza por canal y país. Complementamos con una capa de Consumer Intelligence — Google Trends, social listening y señales de chatbots IA — que nos adelanta cambios de demanda 2 a 8 semanas.
 >
 > El gobierno de datos corre sobre Unity Catalog con ownership por dominio, RBAC granular y cumplimiento de LGPD, LFPDPPP y Ley 25.326.
+>
+> La plataforma se estructura en tres módulos diferenciados: MLOps Studio donde los Data Scientists controlan qué modelos entran a producción, Scenario Planner donde Category Managers hacen simulaciones what-if con los top-3 modelos, y Executive Dashboard donde C-Level hace tracking de KPIs de negocio — Forecast-to-Plan Gap, Revenue at Risk, Market Reaction Speed — sin un solo WMAPE en pantalla.
 >
 > Primer valor en el mes 7: forecasts ML en producción para Brasil eCommerce y Retail. Cobertura completa LAM en el mes 12. Steady-state cost de $22K-$31K/mes."
 
@@ -61,27 +63,53 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > Específicamente, Unity Catalog con el modelo de governance que propongo es compatible con una federación de datos cross-regional si adidas decide en el futuro consolidar forecasting a nivel global."
 
+### P5 (nuevo): "¿Por qué tres módulos separados y no un solo dashboard?"
+**Respuesta:**
+> "Porque un Data Scientist y un CEO no tienen las mismas preguntas, el mismo contexto, ni el mismo tiempo para pasar en una herramienta. Un dashboard único que intenta servir a todos termina sirviendo bien a nadie.
+>
+> MLOps Studio le da a los Data Scientists control total sobre qué modelos están en producción, con todas las métricas técnicas que necesitan — WMAPE, drift, PSI, retraining history. El Scenario Planner le da a los Category Managers simulación de escenarios con los top-3 modelos ya validados, sin requerir expertise en ML. El Executive Dashboard le da a C-Level los KPIs de negocio en lenguaje de negocio — revenue, costo, velocidad — sin WMAPE en pantalla.
+>
+> La fragmentación no es complejidad — es claridad. Cada módulo tiene un dueño claro, una decisión clara, y un resultado medible."
+
+### P6 (nuevo): "¿Qué es exactamente la capa de Consumer Intelligence y cómo funciona?"
+**Respuesta:**
+> "Es una octava fuente de datos que captura señales de demanda antes de que aparezcan en las ventas. Específicamente: Google Trends (volumen de búsquedas por categoría y país), social listening via APIs de Brandwatch o Sprinklr (sentimiento de marca y categoría), y patrones de queries de AI chatbots (qué está preguntando la gente sobre productos).
+>
+> La ventaja concreta: estas señales adelantan los cambios de demanda 2 a 8 semanas respecto a los datos transaccionales. Si en enero empiezan a subir las búsquedas de 'zapatillas running Colombia' y el sentimiento social alrededor de una categoría se vuelve positivo, nosotros lo sabemos en enero — el POS lo confirma en marzo.
+>
+> El caso de uso más crítico es NPI — new product introductions. Cuando un producto tiene cero historial de ventas, Consumer Intelligence es la señal primaria para inicializar el forecast de cold-start.
+>
+> Los datos aterrizan en `bronze.consumer_intel.*` con la misma gobernanza, lineage y quality gates que el resto de los dominios. No son datos de segunda clase."
+
+### P7 (nuevo): "¿Cómo mides el éxito de esta plataforma? ¿Solo con WMAPE?"
+**Respuesta:**
+> "No — y esa es una de las decisiones de diseño que más me importa. El WMAPE es una métrica de ingeniería, no una métrica de negocio. Los Data Scientists la rastrean en MLOps Studio. El CFO no la ve.
+>
+> Las métricas primarias de negocio son cinco: Reducción de Inventory Opportunity Cost (target 10-15%), Market Reaction Speed por debajo de 3 días — hoy son 2 a 4 semanas —, Forecast-to-Plan Gap por debajo del 15%, reducción de Revenue at Risk en 20%, y Analyst Automation Rate del 80%+ — hoy menos del 5% del volumen de forecast es automatizado.
+>
+> El WMAPE es una métrica de soporte — target <20%. Es importante, pero es el 'cómo', no el 'qué'. Si llegamos a 22% de WMAPE pero los planners están tomando decisiones más rápido y el inventario opportunity cost bajó 12%, el proyecto fue un éxito."
+
 ---
 
 ## BLOQUE 2: PREGUNTAS TÉCNICAS PROFUNDAS
 
-### P5: "¿Por qué Databricks y no SageMaker para el componente de ML?"
+### P8: "¿Por qué Databricks y no SageMaker para el componente de ML?"
 **Respuesta:**
 > "SageMaker es una plataforma de ML excelente, pero para este caso específico Databricks tiene dos ventajas determinantes: primero, la integración nativa entre el data engineering (ETL), el feature store, el entrenamiento y el serving en una sola plataforma. Con SageMaker necesitaríamos múltiples servicios adicionales de AWS para tener paridad de funcionalidades, lo que aumenta complejidad operativa.
 >
 > Segundo, la decisión ya está tomada — el brief especifica Databricks como non-negotiable. Mi propuesta maximiza las capacidades de esa plataforma. Si la restricción no existiera, haría el mismo análisis y llegaría a la misma conclusión por la coherencia del stack."
 
-### P6: "¿Por qué Delta Lake sobre Iceberg o Hudi?"
+### P9: "¿Por qué Delta Lake sobre Iceberg o Hudi?"
 **Respuesta:**
 > "Las tres son buenas opciones en 2026. Delta Lake es la elección correcta aquí por tres razones concretas: integración nativa con Databricks (Zero-ETL para Unity Catalog), tiempo de viaje (time travel) que es crítico para auditoría y reprocessing, y Z-ordering que optimiza las queries BI sobre Gold tables. Iceberg sería una buena alternativa si necesitáramos interoperabilidad multi-cloud; Hudi si el caso de uso primario fuera upserts de alta frecuencia. Ninguno de los dos ofrece ventaja suficiente para justificar salir del stack nativo de Databricks."
 
-### P7: "Explícame Unity Catalog en términos simples — ¿por qué no solo IAM?"
+### P10: "Explícame Unity Catalog en términos simples — ¿por qué no solo IAM?"
 **Respuesta:**
 > "IAM controla quién puede llamar a qué API de AWS — es control de infraestructura. Unity Catalog controla quién puede leer qué tabla, columna, o fila dentro de Databricks — es control de datos.
 >
 > La diferencia práctica: con IAM solo, si le doy acceso a un usuario a S3, ve todos los archivos del bucket. Con Unity Catalog puedo decir: 'Este demand planner puede ver la tabla gold.forecast.outputs_v1, pero solo las filas donde country_code = 'BRA', y la columna de customer_id aparece enmascarada.' Esa granularidad es lo que necesitamos para LGPD, y lo que hace que governance sea operacional y no solo declarativa."
 
-### P8: "¿Cómo funciona el Unified Product Master en la práctica?"
+### P11: "¿Cómo funciona el Unified Product Master en la práctica?"
 **Respuesta:**
 > "Es un proceso de entity resolution en tres etapas. Primera etapa: match exacto por barcode EAN/UPC — cuando una zapatilla tiene el mismo código de barras en SAP, en el POS y en eCommerce, el match es determinístico. Eso resuelve aproximadamente el 70-80% de los casos.
 >
@@ -91,7 +119,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > El KPI de éxito de esta capa es match rate >95%. Sin esto, los modelos ML no funcionan — no pueden ver el volumen total de un producto."
 
-### P9: "¿Por qué no hacen real-time forecasting?"
+### P12: "¿Por qué no hacen real-time forecasting?"
 **Respuesta:**
 > "Porque el negocio no necesita real-time forecast — necesita near real-time data. La diferencia es importante.
 >
@@ -101,13 +129,13 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > Esto también impacta costo significativamente: endpoints always-on son 3-5x más caros que batch scoring semanal para el mismo volumen."
 
-### P10: "¿Cómo manejan el cold start para nuevos productos (NPI)?"
+### P13: "¿Cómo manejan el cold start para nuevos productos (NPI)?"
 **Respuesta:**
 > "Es uno de los problemas más difíciles en forecasting. Nuestra estrategia tiene tres capas: primero, priors a nivel de categoría — si lancemos una zapatilla running negra talla 42, usamos el patrón de demanda promedio de esa categoría para los primeros meses. Segundo, similitud de atributos — usando embeddings de características del producto (color, precio, género, categoría) para encontrar los productos históricos más similares y transferir su perfil de demanda. Tercero, para grandes lanzamientos con datos de pre-orden, los orders books dan una señal de demanda capturada antes del lanzamiento.
 >
 > El target de NPI es MAPE < 30% en las primeras 8 semanas. Es una barra más baja que para productos establecidos, y es honesta con la incertidumbre real del cold start."
 
-### P11: "¿Qué pasa si la calidad de datos de SAP es mala?"
+### P14: "¿Qué pasa si la calidad de datos de SAP es mala?"
 **Respuesta:**
 > "Buen pregunta — y es el riesgo más probable en la realidad. Nuestra arquitectura está diseñada específicamente para esto. Bronze es append-only y raw: guardamos exactamente lo que llega de SAP sin transformar. Eso nos protege: si los datos de SAP tienen errores, podemos reprocessar Silver y Gold una vez que los errores estén corregidos, sin perder la fuente original.
 >
@@ -115,7 +143,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > El mensaje para el equipo de IT y SAP Basis es: necesitamos su colaboración en las primeras semanas para entender la estructura de los datos y calibrar los quality gates. No asumimos que SAP es perfecto."
 
-### P12: "¿Cómo garantizan la reproducibilidad de los modelos?"
+### P15: "¿Cómo garantizan la reproducibilidad de los modelos?"
 **Respuesta:**
 > "MLflow Model Registry es el mecanismo central. Cada experimento de entrenamiento registra: versión del código (git commit), versión de los datos (Delta table version), hiperparámetros, métricas de validación, y el modelo serializado. Cualquier forecast producido en el pasado es reproducible apuntando a la versión de modelo y la versión de datos correspondiente.
 >
@@ -125,7 +153,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 
 ## BLOQUE 3: PREGUNTAS DE LIDERAZGO Y EJECUCIÓN
 
-### P13: "¿Cómo manejas a stakeholders que no quieren cambiar su proceso de forecasting?"
+### P16: "¿Cómo manejas a stakeholders que no quieren cambiar su proceso de forecasting?"
 **Respuesta:**
 > "La resistencia al cambio en forecasting es predecible y hay que planificarla. Los demand planners han construido su proceso actual durante años; decirles que están equivocados no funciona.
 >
@@ -133,7 +161,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > El riesgo no es técnico: es organizacional. Y la solución es inversión en change management, no en ingeniería."
 
-### P14: "¿Cómo priorizas si hay conflicto entre lo que pide Data Engineering y lo que pide Commercial o Supply Chain?"
+### P17: "¿Cómo priorizas si hay conflicto entre lo que pide Data Engineering y lo que pide Commercial o Supply Chain?"
 **Respuesta:**
 > "Los conflictos de prioridad son inevitables y la solución es claridad de proceso, no política.
 >
@@ -141,7 +169,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > A nivel de Director, mi rol es arbitrar esos conflictos cuando no se resuelven en el equipo, y ser transparente con los stakeholders sobre las implicaciones de cada decisión de prioridad. Lo que no hago es dejar que la priorización sea implícita — si decidimos posponer algo, lo documentamos, comunicamos y acordamos."
 
-### P15: "¿Cuánto tiempo tarda en haber valor visible para el negocio?"
+### P18: "¿Cuánto tiempo tarda en haber valor visible para el negocio?"
 **Respuesta:**
 > "Hay dos hitos de valor antes del mes 7. En el mes 2-3, con el pipeline Bronze-to-Gold corriendo para Brasil y México, los planners tienen por primera vez un dashboard unificado de demanda cross-canal. No es ML todavía, pero ya es un salto enorme sobre el estado actual de spreadsheets.
 >
@@ -149,7 +177,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > El primer valor de ML — forecasts automatizados en producción — es el mes 7. Esa es la promesa central."
 
-### P16: "¿Cómo manejas la deuda técnica en un equipo que está construyendo desde cero y con presión de entregar?"
+### P19: "¿Cómo manejas la deuda técnica en un equipo que está construyendo desde cero y con presión de entregar?"
 **Respuesta:**
 > "La deuda técnica gestionada conscientemente no es el problema — la deuda técnica acumulada sin visibilidad sí lo es.
 >
@@ -157,7 +185,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > El riesgo mayor en un greenfield como este es construir rápido y crear una plataforma que solo entiende el equipo original. Eso es un pasivo organizacional. La documentación y los standards desde el día 1 son la inversión."
 
-### P17: "¿Tienes experiencia directa con Databricks?"
+### P20: "¿Tienes experiencia directa con Databricks?"
 **Respuesta:**
 > "Tengo experiencia con los conceptos de plataformas de lakehouse y las decisiones de arquitectura que rodean al stack de Databricks — arquitectura Medallion, Delta Lake, Unity Catalog, MLflow. He trabajado con pipelines de datos a escala y con infraestructura ML de producción.
 >
@@ -165,7 +193,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 
 *(Nota: adapta esta respuesta a tu experiencia real. Si tienes más o menos experiencia en Databricks, ajusta el lenguaje.)*
 
-### P18: "¿Cómo te aseguras de que el equipo de 10-12 personas rinde y entrega en timeline?"
+### P21: "¿Cómo te aseguras de que el equipo de 10-12 personas rinde y entrega en timeline?"
 **Respuesta:**
 > "Tres principios: claridad de ownership, visibilidad de progreso, y cultura de decir 'no sé' sin miedo.
 >
@@ -175,7 +203,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 
 ## BLOQUE 4: PREGUNTAS TÉCNICAS DE GOVERNANCE Y COMPLIANCE
 
-### P19: "¿Cómo funciona LGPD en la práctica dentro de esta arquitectura?"
+### P22: "¿Cómo funciona LGPD en la práctica dentro de esta arquitectura?"
 **Respuesta:**
 > "LGPD aplica principalmente a datos personales en clickstream y POS: customer_id, device_id, transaction IDs que pueden linkarse a personas.
 >
@@ -187,7 +215,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > Para requests de acceso y eliminación (DSAR): Delta time travel facilita la identificación y el 'tombstoning' de registros de un individuo específico en todas las tablas donde aparece."
 
-### P20: "¿Qué pasa si hay un data breach?"
+### P23: "¿Qué pasa si hay un data breach?"
 **Respuesta:**
 > "La arquitectura tiene cuatro capas de defensa. Preventiva: KMS encryption at rest en todos los buckets S3, TLS 1.2+ en tránsito, PrivateLink entre Databricks y AWS sin exposición a internet público. Detectiva: CloudTrail + Unity Catalog audit logs registran cada acceso con quién, qué, cuándo. Aislante: RBAC granular limita el blast radius — si una cuenta es comprometida, el atacante solo ve lo que ese rol tiene acceso. Responsiva: runbook de incident response con pasos de contención, notificación a reguladores (LGPD requiere notificación en 72 horas), y evidencia en logs para investigación forense."
 
@@ -195,13 +223,13 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 
 ## BLOQUE 5: PREGUNTAS DE CONTEXTO Y VISIÓN
 
-### P21: "¿Cómo ves esto evolucionando en 3 años?"
+### P24: "¿Cómo ves esto evolucionando en 3 años?"
 **Respuesta:**
 > "En 3 años veo tres evoluciones naturales. Primero, de forecasting a planificación integrada: la plataforma conecta forecasts con supply chain en tiempo real, habilitando replenishment automatizado con menos intervención manual. Segundo, democratización: más equipos de negocio usando el dato directamente a través del self-service portal, no solo demand planning. Tercero, inteligencia de mercado: los modelos en LAM empiezan a incorporar señales de competidores, trends de redes sociales, y datos alternativos — evolucionando de forecasting reactivo a proactivo.
 >
 > El activo más valioso que construimos en el año 1 no es el modelo de ML — es el dataset histórico unificado y el Unified Product Master. Eso se convierte en el fundamento de cualquier caso de uso analítico que adidas LAM quiera construir después."
 
-### P22: "¿Qué harías diferente si el presupuesto fuera la mitad?"
+### P25: "¿Qué harías diferente si el presupuesto fuera la mitad?"
 **Respuesta:**
 > "Priorizaría la capa de datos sobre la capa de ML. Bronze-to-Gold pipeline y el Unified Product Master son el 80% del valor. Un modelo estadístico simple (Prophet) corriendo sobre datos bien limpios supera a un modelo sofisticado corriendo sobre datos sucios.
 >
@@ -209,7 +237,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > El team sería más pequeño: 1 Platform Engineer, 1 Data Architect, 1-2 Data Engineers, 1 ML Engineer. Sin BI Developer en Fase 1 — empezamos con SQL queries directas antes de construir dashboards."
 
-### P23: "¿Qué tres cosas harías en los primeros 90 días como Director?"
+### P26: "¿Qué tres cosas harías en los primeros 90 días como Director?"
 **Respuesta:**
 > "Primero: escucha activa. Primeros 30 días hablando con demand planners, supply chain, commercial, IT y SAP Basis para entender los pain points reales, no los asumidos. El diseño que propongo puede necesitar ajustes una vez conozca el contexto específico de adidas LAM desde adentro.
 >
@@ -221,7 +249,7 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 
 ## BLOQUE 6: PREGUNTAS TRAMPA O INESPERADAS
 
-### P24: "¿No está Databricks muy caro para LAM?"
+### P27: "¿No está Databricks muy caro para LAM?"
 **Respuesta:**
 > "El costo de la plataforma es $22K-$31K/mes en steady state. El costo relevante no es el precio de la plataforma — es el costo de no tenerla.
 >
@@ -229,36 +257,36 @@ Usa las notas de Slide 3, 4 y 5 del archivo `speaker-notes.md`.
 >
 > Dicho eso, $22K-$31K/mes incluye todas las optimizaciones de costo que propongo: 70% spot instances, SQL serverless, scale-to-zero para Model Serving. Sin esas optimizaciones el costo sería significativamente mayor."
 
-### P25: "¿Cómo compara tu propuesta con lo que hacen otras regiones de adidas?"
+### P28: "¿Cómo compara tu propuesta con lo que hacen otras regiones de adidas?"
 **Respuesta:**
 > "No tengo visibilidad directa de lo que hacen otras regiones en detalle. Lo que sí sé es que la elección de plataforma (Databricks + AWS + Medallion) es corporativa, lo que sugiere que hay patrones establecidos a nivel global. LAM tiene especificidades que justifican adaptar esos patrones: la heterogeneidad de mercados, las regulaciones específicas de Brasil/México/Argentina, y los canales B2B con visibilidad limitada de datos (Franchise).
 >
 > Si en el proceso de onboarding encontrara que hay un playbook global establecido, mi primer paso sería entenderlo profundamente antes de proponer variaciones. Es más eficiente aprender de lo que ya funciona."
 
-### P26: "¿Cuánto tiempo lleva construir el Unified Product Master?"
+### P29: "¿Cuánto tiempo lleva construir el Unified Product Master?"
 **Respuesta:**
 > "Es la actividad más larga y más riesgosa de la Fase 1. El proceso técnico de entity resolution toma 3-4 semanas. Pero la validación del negocio — que el equipo de Product Data revise los matches, corrija errores, construya la tabla de mapping manual — es un proceso iterativo que puede tomar 6-8 semanas con dedicación parcial del equipo.
 >
 > El plan contempla esto: la ingesta de SAP (Fivetran) empieza en semana 5, y el Unified Product Master tiene 4 semanas dedicadas de construcción + validación. El match rate del 95% es el exit criteria de esta fase, no una aspiración."
 
-### P27: "¿Y si los datos de Franchise son tan limitados que el modelo no aprende nada?"
+### P30: "¿Y si los datos de Franchise son tan limitados que el modelo no aprende nada?"
 **Respuesta:**
 > "Franchise es el canal más difícil y lo reconozco en la estrategia. La solución de modelo para Franchise no es deep learning — es statistical methods con priors jerárquicos: el modelo de Franchise de una categoría 'aprende' del patrón de Retail de esa misma categoría en el mismo país.
 >
 > El target de accuracy para Franchise es WMAPE ≤24%, más generoso que los otros canales, porque la limitación de datos es real. Eso es honesto con el negocio. Y el objetivo a mediano plazo (Fase 3) es extender el acceso a datos de sell-out de franquiciados — que hoy no existe — para mejorar progresivamente esa capa."
 
-### P28: "¿Por qué no usar una solución out-of-the-box como Anaplan o Blue Yonder para forecasting?"
+### P31: "¿Por qué no usar una solución out-of-the-box como Anaplan o Blue Yonder para forecasting?"
 **Respuesta:**
 > "Anaplan y Blue Yonder son soluciones válidas para empresas que quieren velocidad de implementación sobre personalización. Para adidas LAM el contexto es diferente por tres razones: primero, la decisión de plataforma ya está tomada (Databricks + AWS) — integrar un sistema SaaS externo añade complejidad y costos de integración. Segundo, la diversidad de canales y mercados en LAM requiere un nivel de customización (modelos por canal, features específicas, regulaciones locales) que las soluciones out-of-the-box sirven mal. Tercero, y más importante desde la perspectiva de largo plazo: construir el capability in-house crea un activo organizacional — datos limpios, modelos entrenados, equipo capacitado — que tiene valor más allá del forecasting. No es solo un software; es una capacidad analítica de adidas LAM."
 
-### P29: "¿Puedes explicarme WMAPE en términos que yo pueda entender?"
+### P32: "¿Puedes explicarme WMAPE en términos que yo pueda entender?"
 *(Para cuando un C-level no técnico lo pregunta)*
 **Respuesta:**
 > "WMAPE es la medida de qué tan lejos están nuestros pronósticos de la realidad, ponderada por el volumen de cada producto. En palabras simples: si pronosticamos vender 100 unidades de una zapatilla y vendemos 80, nuestro error en ese producto es 20%. El WMAPE promedia eso a través de todos los productos, dándole más peso a los que generan más revenue.
 >
 > Actualmente, adidas LAM está en aproximadamente 35-40% de error promedio. Nuestra propuesta apunta a <20% en 12 meses. Para que eso sea concreto: si hoy la diferencia entre lo que pronosticamos y lo que realmente necesitamos es de $10M en inventario mal distribuido, con WMAPE <20% esa diferencia se reduce a menos de $5M — eso es capital que se libera o se aplica donde realmente se necesita."
 
-### P30: "Si tuvieras que poner en riesgo una de las 4 fases, ¿cuál sería?"
+### P33: "Si tuvieras que poner en riesgo una de las 4 fases, ¿cuál sería?"
 **Respuesta:**
 > "Fase 4 es la más sacrificable sin impactar el valor central. El self-service portal y la expansión a Chile y Perú son valiosos, pero no son críticos para el ROI principal. Las dos primeras fases (datos correctos + ML para Brasil y México, que son los mercados de mayor volumen) capturan la mayor parte del impacto.
 >

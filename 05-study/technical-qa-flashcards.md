@@ -113,6 +113,84 @@ bcadidas/
 **Q:** ¿Qué compute type para inferencia?  
 **A:** Batch scoring para forecast semanal + Model Serving endpoints para escenarios what-if.
 
+---
+
+## Sección nueva — Tres Módulos de Usuario
+
+### Flashcard 13
+**Q:** ¿Cuáles son los tres módulos de usuario y quién los usa?
+**A:** Module 1 — MLOps Studio (Data Scientists: monitoreo + experimentación de modelos). Module 2 — Scenario Planner (Category Managers / Analysts: simulación what-if). Module 3 — Executive Dashboard (CEO, CFO, Country Leaders: KPIs de negocio).
+
+### Flashcard 14
+**Q:** ¿Por qué tres módulos separados y no un solo dashboard?
+**A:** Porque un CEO y un Data Scientist no tienen las mismas preguntas, ni el mismo presupuesto de tiempo, ni el mismo vocabulario. Un dashboard único que intente servirlos a todos falla en adopción. Cada módulo tiene un dueño claro, una decisión clara y un outcome claro.
+
+### Flashcard 15
+**Q:** ¿Qué hace el MLOps Studio que otros módulos no hacen?
+**A:** Es el único punto donde los modelos entran o salen de producción — a través de MLflow Model Registry. Los Data Scientists son los únicos árbitros de calidad de modelos. Ningún modelo llega a producción sin su acción explícita.
+
+### Flashcard 16
+**Q:** ¿Cómo accede el Category Manager al Scenario Planner?
+**A:** Selecciona contexto (SKU × canal × país), ve los top-3 modelos rankeados por el MLOps Studio, configura parámetros what-if (descuento promo %, evento competidor, shock macro, multiplicador estacional) y elige el forecast que mejor se alinea con su conocimiento de dominio antes de exportar a SAP IBP.
+
+### Flashcard 17
+**Q:** ¿Qué KPIs ve el CEO en el Executive Dashboard?
+**A:** Forecast-to-Plan Gap (delta ML vs plan financiero), Revenue at Risk (exposición por stockout en USD), Market Reaction Speed (días desde detección de señal hasta respuesta operativa). **Nunca WMAPE** — ese es un KPI de ingeniería, no de negocio.
+
+### Flashcard 18
+**Q:** Frase clave sobre el Executive Dashboard.
+**A:** *"There is no WMAPE on the Executive Dashboard. WMAPE is a Data Scientist metric. Executives track revenue, cost, and speed."*
+
+---
+
+## Sección nueva — Consumer Intelligence Layer
+
+### Flashcard 19
+**Q:** ¿Qué es la Consumer Intelligence Layer?
+**A:** Una capa de señales de demanda latente compuesta por: Google Trends (búsquedas por categoría/país), Social Listening (Brandwatch/Sprinklr — sentimiento de marca y categoría), y patrones de queries en AI Chatbots. Captura intención de compra antes de que se materialice en transacciones.
+
+### Flashcard 20
+**Q:** ¿Cuál es la ventaja temporal de Consumer Intelligence?
+**A:** Detecta cambios de demanda 2 a 8 semanas antes de que aparezcan en datos transaccionales (POS, eCommerce). Es la diferencia entre capturar una tendencia y perseguirla.
+
+### Flashcard 21
+**Q:** ¿Para qué es especialmente crítica la Consumer Intelligence?
+**A:** Para NPI forecasting (New Product Introductions) — productos nuevos sin historial de ventas. Cuando no hay datos transaccionales, las señales de Consumer Intelligence son el input primario para cold-start forecasting.
+
+### Flashcard 22
+**Q:** ¿Cómo se gestiona el riesgo de que una API de Consumer Intelligence falle?
+**A:** Multi-provider strategy: si un proveedor cae, el sistema degrada gracefully sin romper el forecast core. Las señales se tratan como indicadores líderes con peso controlado en el ensemble, no como driver primario.
+
+### Flashcard 23
+**Q:** ¿Dónde vive la Consumer Intelligence en el Medallion?
+**A:** Bronze: `bronze.consumer_intel.*` (raw, append-only). Silver: normalizada por semana × país × categoría con índices de sentimiento. Gold: features en el Feature Store (`category_trend`, índices de señal). Misma gobernanza y lineage que cualquier otro dominio.
+
+---
+
+## Sección nueva — KPIs de Negocio
+
+### Flashcard 24
+**Q:** ¿Cuáles son los 5 Business KPIs primarios?
+**A:** (1) Inventory Opportunity Cost Reduction: 10–15%. (2) Market Reaction Speed: <3 días (desde 2–4 semanas). (3) Forecast-to-Plan Gap: <15% (desde ~35–40%). (4) Revenue at Risk: 20% de reducción. (5) Analyst Automation Rate: 80%+ automatizado (desde <5%).
+
+### Flashcard 25
+**Q:** ¿Cuál es el baseline del Analyst Automation Rate?
+**A:** Hoy menos del 5% del volumen de forecasting se genera automáticamente. Todo lo demás es manual. El target: 80%+ automatizado — los planners se enfocan en excepciones y decisiones de juicio, no en cálculos.
+
+### Flashcard 26
+**Q:** ¿Cuál es la diferencia entre un KPI técnico y uno de negocio en esta plataforma?
+**A:** WMAPE es de ingeniería — lo ven los Data Scientists. Revenue at Risk y Market Reaction Speed son de negocio — los ve el CEO. La plataforma habla los dos lenguajes, pero nunca mezcla audiencias: no hay WMAPE en el Executive Dashboard.
+
+### Flashcard 27
+**Q:** ¿Cuándo se entrega el primer valor de negocio?
+**A:** En el mes 7 — cuando el MLOps Studio está en producción con modelos ML activos para Brasil y México. No en el mes 12.
+
+### Flashcard 28
+**Q:** ¿Cuánto cuesta la plataforma al mes en steady state?
+**A:** $22K–$31K/month (Databricks + AWS). La fase 0–1 es ~40% de eso. ROI: payback en año 2, medido en semanas.
+
+---
+
 ## 4) Puntos técnicos para enfatizar en Q&A (speaker cheat sheet)
 
 - "No hacemos 'real-time forecasting' porque el negocio consume ciclo semanal; sí hacemos near real-time ingestion para mejor frescura."
@@ -120,8 +198,19 @@ bcadidas/
 - "Unity Catalog es la columna vertebral de gobernanza: RBAC fino, lineage y audit."
 - "El diseño multi-país se apoya en parametrización por `country_code`, no en pipelines aislados por país."
 - "La separación de cómputo evita que entrenamientos pesados afecten ETL o BI."
+- "Los Data Scientists son los únicos árbitros de producción — no hay caja negra, hay accountability."
+- "Consumer Intelligence detecta la demanda 2 a 8 semanas antes que el POS — eso cambia el juego en NPI."
+- "No hay WMAPE en el Executive Dashboard — WMAPE es un KPI de ingeniería."
 
 ## 5) Mini guion de 45 segundos (si te preguntan por arquitectura)
 
 > "La plataforma usa S3 como data lake central, MSK/Kinesis para streaming y Lambda para activación event-driven. Opera con arquitectura Medallion para garantizar calidad progresiva y re-procesamiento confiable desde Bronze. A escala LAM, resolvemos crecimiento y resiliencia con particionado, autoscaling y estrategias de fault tolerance. En costos, aplicamos cluster policies, spot/on-demand y separación de cómputo entre ETL, entrenamiento ML e inferencia, usando Jobs Clusters, SQL Warehouses y Model Serving según cada carga."
+
+## 6) Mini guion de 45 segundos (si te preguntan por los tres módulos)
+
+> "La plataforma no tiene un único dashboard que intente servir a todos. Tiene tres módulos con dueños distintos. MLOps Studio para Data Scientists — ellos son los únicos que pueden promover modelos a producción. Scenario Planner para Category Managers — simulan escenarios what-if con los top-3 modelos rankeados por el equipo técnico. Executive Dashboard para C-Level — Forecast-to-Plan Gap, Revenue at Risk, Market Reaction Speed. Sin WMAPE, sin jerga estadística. Cada módulo tiene una decisión clara y un outcome claro."
+
+## 7) Mini guion de 30 segundos (si te preguntan por Consumer Intelligence)
+
+> "Agregamos una capa de señales de demanda latente: Google Trends, social listening con Brandwatch y Sprinklr, y patrones de queries en AI chatbots. Estas señales detectan cambios en la demanda 2 a 8 semanas antes de que aparezcan en el POS. Para NPI — productos nuevos sin historial — son el input primario. El riesgo de dependencia de API lo mitigamos con multi-provider strategy y degradación graceful."
 
