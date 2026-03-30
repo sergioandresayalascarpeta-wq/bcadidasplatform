@@ -48,16 +48,16 @@ export default function Hero() {
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row gap-4">
           <a
-            href="#vision"
+            href="/platform"
             className="inline-block bg-white text-black px-8 py-4 font-bold uppercase tracking-widest text-sm hover:bg-gray-200 transition-colors"
           >
-            Explore the Platform
+            Launch Platform →
           </a>
           <a
-            href="#architecture"
+            href="#vision"
             className="inline-block border border-gray-600 text-white px-8 py-4 font-bold uppercase tracking-widest text-sm hover:border-white transition-colors"
           >
-            View Architecture
+            Explore Proposal
           </a>
         </div>
       </div>

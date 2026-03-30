@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "adidas Forecast Platform (root)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "adidas Forecast Platform (app)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "adidas-forecast-platform", "run", "dev"],
+      "port": 3000
+    }
+  ]
+}

@@ -35,6 +35,7 @@ Proposal deliverables for the adidas Latin America Demand Forecasting capability
 | 8 | ROI / Business Case | [`06-sustentacion/roi-business-case.md`](06-sustentacion/roi-business-case.md) | Industry benchmarks + financial model |
 | 9 | Technical Flashcards | [`05-study/technical-qa-flashcards.md`](05-study/technical-qa-flashcards.md) | Quick study reference |
 | 10 | NotebookLM Input | [`notebooklm-output-and-presentation.md`](notebooklm-output-and-presentation.md) | For NotebookLM podcast/study |
+| 11 | Diagram Workflow (Mermaid + draw.io) | [`07-diagram-workflow/diagram-workflow.md`](07-diagram-workflow/diagram-workflow.md) | Source-of-truth and versioning rules |
 
 ## Scope
 
